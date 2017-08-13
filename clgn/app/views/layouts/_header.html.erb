@@ -1,0 +1,7 @@
+<div class="header full_width">
+  <!--<a href="<%= root_path %>"><img class="logo" src="/images/bg/house_on_hand.jpeg" /></a>-->
+  <a class="logo" id="textual" href="<%= root_path %>"><%= (t "to_home_page") %></a>
+  <div id="mainnav">
+  	<%= render_navigation(:skip_if_empty => false, :expand_all => true) %>
+  </div>
+</div>

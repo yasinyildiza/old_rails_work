@@ -1,0 +1,30 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  date:
+    formats:
+      default: "%Y/%m/%d"
+  home: "Home"
+  attributes:
+    id: "Id"
+    general_actions: "General Actions"
+    created_at: "Creation Date"
+    updated_at: "Update Date"
+    email: "e-mail"
+    password: "Password"
+    password_confirmation: "Password Confirmation"
+  actions:
+    show: "Show"
+    edit: "Edit"
+    destroy: "Destroy"
+    confirm: "Are you sure?"
+    cancel: "Cancel"
+    save: "Save"
+    new: "New"
+  login:
+    email: "e-mail"
+    password: "Password"
+    sign_in: "Sign In"
+    sign_up: "Sign Up"
+    remember_me: "Remember me"

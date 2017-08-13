@@ -1,0 +1,44 @@
+<% if @company.errors.any? %>
+  <div class="alert-message error">
+    <p>
+      <strong>
+          <%= t "errors.save_error", :count => @company.errors.count, :save_obj => (t "user") %>
+      </strong>
+      <br />
+      <% @company.errors.full_messages.each do |msg| %>
+          <strong>- <%= msg %></strong><br/>
+      <% end %>
+    </p>
+  </div>
+<% end %>
+
+<%= simple_form_for @company do |f| %>
+  <div class="inner_wrap">
+    <div class="form field_list">
+
+      <%= f.simple_fields_for :user, @company.build_user do |fu|%>
+        <%= render :partial => 'users/form' , :locals => {:f => fu, :user_type => 2}%>
+      <% end %>
+
+      <div class='field'>
+        <%= f.input :name, :label=> (t "list_attributes.name"), :label_html => {:class => "form_label"} %>
+      </div>
+
+      <div class='field'>
+        <%= f.input :authorized_person, :label=> (t "list_attributes.authorized_person"), :label_html => {:class => "form_label"} %>
+      </div>
+
+      <div class='field'>
+        <%= f.input :phone_number, :label=> (t "list_attributes.phone_number"), :label_html => {:class => "form_label"} %>
+      </div>
+
+      <div class='field'>
+        <%= f.input :website, :label=> (t "list_attributes.website"), :label_html => {:class => "form_label"} %>
+      </div>
+
+      <div class="submit">
+        <%= f.button :submit, I18n.t("actions.save"), :id => "fs" %>
+      </div>
+    </div>
+  </div>
+<% end %>

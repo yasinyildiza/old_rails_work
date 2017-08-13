@@ -1,0 +1,56 @@
+<%= content_for :path do %>
+  <%= render :partial => "path", :locals => {:image => @image} %>
+<% end %>
+
+<%= content_for :general_actions do %>
+  <%= link_to (t "actions.edit"), edit_image_path(@image), :class => "image_world general_action link one" %>
+<% end %>
+
+<%= content_for :page_title do %>
+  <%= render :partial => "page_title", :locals => {:image => @image} %>
+<% end %>
+
+<table border="1" class="image_show">
+<tr>
+  <td><%= (t "attributes.id") %></td>
+  <td><%= @image.id %></td>
+</tr>
+<tr>
+  <td><%= (t "attributes.image") %></td>
+  <td><%= link_to image_tag(@image.image_file_url.to_s), image_path(@image) %></td>
+</tr>
+<tr>
+  <td><%= (t "model.project.singular") %></td>
+  <td>
+    <% if @image.work.project %>
+      <%= link_to @image.work.project.name, project_path(@image.work.project) %>
+    <% else %>
+      <%= (t "other") %>
+    <% end %>
+  </td>
+</tr>
+<tr>
+  <td><%= (t "model.category.singular") %></td>
+  <td><%= link_to @image.work.category.name, category_path(@image.work.category) %></td>
+</tr>
+<tr>
+  <td><%= (t "model.work.singular") %></td>
+  <td><%= link_to @image.work.name, work_path(@image.work) %></td>
+</tr>
+<tr>
+  <td><%= (t "attributes.version") %></td>
+  <td><%= link_to @image.version, image_path(@image) %></td>
+</tr>
+<tr>
+  <td><%= (t "attributes.note") %></td>
+  <td><%= @image.note %></td>
+</tr>
+<tr>
+  <td><%= (t "attributes.created_at") %></td>
+  <td><%= @image.created_at %></td>
+</tr>
+<tr>
+  <td><%= (t "attributes.updated_at") %></td>
+  <td><%= @image.updated_at %></td>
+</tr>
+</table>

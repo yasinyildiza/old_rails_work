@@ -1,0 +1,7 @@
+<div class="image_world text category project name">
+	<% if project_id.nil? %>
+		<%= (t "other") %>
+	<% else %>
+		<%= link_to works.first.project.name, project_path(works.first.project) %>
+	<% end %>
+</div>

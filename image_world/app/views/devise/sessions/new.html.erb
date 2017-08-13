@@ -1,0 +1,36 @@
+<%= content_for :authentication_item do %>
+  <div class="image_world container login" id="login_container">
+    <div class="image_world text login" id="login_title">
+      <%=(t "login.sign_in")%>
+    </div>
+    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+      <div class="image_world container login" id="login_top">
+        <div class="image_world container field login" id="login_email">
+          <%= f.label (t "login.email"), :class => "image_world form field label" %>
+          <%= f.email_field :email, :autofocus => true %>
+        </div>
+        <div class="image_world container field login" id="login_password">
+          <%= f.label (t "login.password"), :class => "image_world form field label" %>
+          <%= f.password_field :password %>
+        </div>
+      </div>
+      <div class="image_world container login" id="login_bottom">
+        <% if devise_mapping.rememberable? -%>
+          <div class="image_world container field checkbox login" id="remember_me_container">
+            <%= f.check_box :remember_me, :class => "checkbox" %>
+            <%= f.label (t "login.remember_me"), :class => "image_world form field label remember_me" %>
+          </div>
+        <% end -%>
+        <div class="image_world container form submit">
+          <%= f.submit (t "login.sign_in"), :id => "login" %>
+        </div>
+        <!--<div class="image_world container field login button" >
+          <%= link_to (t "login.sign_up"), new_user_path, :id => "sign_up_button" %>
+        </div>-->
+        <div class="image_world container field login" id="devise_links">
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

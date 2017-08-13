@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  class: 
+  name: MyString
+  data_type: 
+  calculation: MyString
+  description: MyString
+  warning: MyString
+
+two:
+  class: 
+  name: MyString
+  data_type: 
+  calculation: MyString
+  description: MyString
+  warning: MyString

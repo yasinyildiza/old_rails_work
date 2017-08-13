@@ -1,0 +1,23 @@
+<%= render :partial => "projects/category/general_work", :locals => {:project => project} %>
+<% if project.grouped_works.count > 0 %>
+	<% project.grouped_works.each do |category_id, works| %>
+		<div class="image_world container category project">
+			<%= render :partial => "projects/category/name", :locals => {:project => project, :category_id => category_id, :works => works} %>
+			<%= render :partial => "projects/category/works", :locals => {:project => project, :category_id => category_id, :works => works} %>
+		</div>
+	<% end %>
+<% else %>
+	<!--<div class="image_world text not_exist"><%= (t "model.work.not_exist").upcase %></div>-->
+<% end %>
+
+<script>
+	$(".image_world.category.project.work_name.input").hide();
+
+	function showNameField(src) {
+		$(".image_world.category.project.work_name.input").hide();
+		$(".image_world.category.project.work_name.fake").show();
+		$("#new_work_name_field_" + src).show();
+		$("#new_work_name_field_fake_" + src).hide();
+		$("#new_work_name_field_" + src).find("input:first").focus();
+	}
+</script>

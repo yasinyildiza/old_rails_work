@@ -1,0 +1,39 @@
+<% if @work.errors.any? or flash[:error] %>
+  <div class="alert-message error">
+    <p>
+      <strong>
+          <% if @work.errors.any? %>
+            <%= t "errors.save_error", :count => @work.errors.count, :save_obj => (t "work") %>
+            <br />
+            <% @work.errors.full_messages.each do |msg| %>
+                <strong>- <%= msg %></strong><br/>
+            <% end %>
+          <% elsif flash[:error] %>
+            <%= (t "errors.save_error") %> <%= flash[:error] %>
+          <% end %>
+      </strong>
+    </p>
+  </div>
+<% end %>
+
+<%= simple_form_for @work do |f| %>
+  <div class="image_world inner_wrap">
+    <div class="image_world form fields">
+      <% if (@work.new_record?) || (@work.category.id != 1) %>
+        <div class="image_world form field">
+          <%= f.input :category_id, :label=> (t "model.category.singular"), :label_html => {:class => "image_world form field label"}, :collection => Category.where("id != 1").collect{|r| [r.name, r.id]}, :as => :select %>
+        </div>
+        <div class="image_world form field odd"> 
+          <%= f.input :project_id, :label=> (t "model.project.singular"), :label_html => {:class => "image_world form field label"}, :collection => Project.all.collect{|r| [r.name, r.id]}, :as => :select %>
+        </div>
+      <% end %>
+      <div class="image_world form field">
+        <%= f.input :name, :label => (t "attributes.name"), :label_html => {:class => "image_world form field label"} %> 
+      </div>
+      <div class="image_world form field odd">
+        <%= f.input :description, :label => (t "attributes.description"), :label_html => {:class => "image_world form field label"} %> 
+      </div>
+      <div class="image_world container form submit"><%= f.button :submit, :id=> "fs", :value=>(t "actions.save") %></div>
+    </div>
+  </div>
+<% end %>

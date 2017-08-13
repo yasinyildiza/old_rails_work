@@ -1,0 +1,6 @@
+:address: "smtp.gmail.com"
+:port: 465
+:user_name: "user@gmail.com"
+:password: "password"
+:authentication: "plain"
+:openssl_verify_mode: "none"

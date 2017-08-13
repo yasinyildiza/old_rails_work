@@ -1,0 +1,23 @@
+<% if work.images.count > 0 %>
+  <table border="1" class="image_world work images">
+	<tr>
+	  <td><%= (t "attributes.id") %></td>
+	  <td><%= (t "attributes.image") %></td>
+	  <td><%= (t "model.project.singular") %></td>
+	  <td><%= (t "model.category.singular") %></td>
+	  <td><%= (t "model.work.singular") %></td>
+	  <td><%= (t "attributes.version") %></td>
+	  <td><%= (t "attributes.note") %></td>
+	  <td><%= (t "attributes.created_at") %></td>
+	  <td><%= (t "attributes.updated_at") %></td>
+	  <td><%= (t "attributes.general_actions") %></td>
+	</tr>
+    <% work.images.reverse.each do |image| %>
+	  <div class="image_world container work image">
+	    <%= render :partial => "image", :locals => {:image => image} %>
+	  </div>
+    <% end %>
+  </table>
+<% else %>
+  <div class="image_world text not_exist"><%= (t "model.image.not_exist").upcase %></div>
+<% end %>

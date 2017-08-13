@@ -1,0 +1,12 @@
+<tr>
+    <td><%= user.id %></td>
+    <td><%= user.real_user.name if user.real_user %></td>
+    <td style="max-width: 150px; word-wrap: break-word;"><%=mail_to user.email %></td>
+    <td><%= user.real_user.phone_number if user.real_user %></td>
+
+    <td class="act">
+        <%= link_to (t "actions.show"), user %>
+        <%= link_to (t "actions.edit"), edit_user_path(user) %>
+        <%= link_to (t "actions.destroy"), user, method: :delete, data: { confirm: I18n.t("actions.confirm_to") } %></td>
+    </td>
+</tr>

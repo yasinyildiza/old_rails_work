@@ -1,0 +1,19 @@
+<% if category.id != 1 %>
+	<%= simple_form_for category, :html => {:class => "image_world container category project work"} do |f| %>
+	  <%= f.simple_fields_for :works, category.works.build do |work| %>
+		    <div><%= work.hidden_field :project_id, :value => project_id %></div>
+		    <img src="/uploads/image/add_image.png" href="#" width="55" height="55" class="image_world category project work_image" onclick="showNameField('<%= project_id %>')" />
+		    <div class="image_world category project work_name fake" id=<%= "new_work_name_field_fake_#{project_id}" %> >
+		    	<%= (t "add_new") %>
+		    </div>
+		    <div class="image_world category project work_name input" id=<%= "new_work_name_field_#{project_id}" %> >
+		      <%= work.input :name, :label => "", :class => "image_world category project work_name" %>
+		    </div>
+	  <% end %>
+	<% end %>
+<% else %>
+	<div class="image_world container category project work">
+		<%= link_to image_tag("/uploads/image/add_image.png", size: "55x55"), work_path(:project_id => project_id), :class => "image_world category project work_image" %>
+		<%= link_to (t "add_new"), work_path(:project_id => project_id), :class => "image_world category project work_name" %>
+	</div>
+<% end %>

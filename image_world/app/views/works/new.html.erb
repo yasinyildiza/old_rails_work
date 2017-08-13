@@ -1,0 +1,21 @@
+<%= content_for :path do %>
+  <div class="image_world path element link first">
+    <%= (t "model.work.singular")%>
+  </div>
+  <div class="image_world path element text seperator"> > </div>
+  <div class="image_world path element link second">
+    <%= (t "actions.new") %>
+  </div>
+<% end %>
+
+<%= content_for :page_title do %>
+  <div class="image_world text item_name">
+    <%= (t "model.work.new") %>
+  </div>
+<% end %>
+
+<%= render "form" %>
+
+<script>
+  $("#left_new_work").addClass("selected");
+</script>

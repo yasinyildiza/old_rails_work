@@ -1,0 +1,44 @@
+<%= content_for :path do %>
+  <div class="image_world path element link first">
+    <%= (t "model.project.singular")%>
+  </div>
+  <div class="image_world path element text seperator"> > </div>
+  <div class="image_world path element link second">
+    <%= link_to @project.name, project_path(@project) %>
+  </div>
+<% end %>
+
+<%= content_for :general_actions do %>
+  <%= link_to (t "actions.edit"), edit_project_path(@project), :class => "image_world general_action link two" %>
+  <%= link_to (t "actions.destroy"), project_path(@project), confirm: (t "actions.confirm"), method: :delete, :class => "image_world general_action link odd two" %>
+<% end %>
+
+<%= content_for :page_title do %>
+  <div class="image_world text item_name">
+    <%= @project.name %>
+  </div>
+  <div class="image_world text item_seperator"> | </div>
+  <div class="image_world text item_description">
+    <%= @project.description %>
+  </div>
+<% end %>
+
+<div class="image_world container category projects">
+  <%= render :partial => "projects/category/list", :locals => {:project => @project} %>
+</div>
+
+<% if Category.all.count > 1 %>
+  <div class="image_world container category new_work">
+    <%= render :partial => "new_work", :locals => {:project => @project} %>
+  </div>
+<% end %>
+
+<button type="button" id="hidden_project_button" style="display:none;" onclick="highlightProject('<%= @project.id %>')" ></button>
+
+<script>
+  $("#hidden_project_button").click();
+function highlightProject(src) {
+  $("#left_item_p" + src).addClass("selected");
+}
+
+</script>

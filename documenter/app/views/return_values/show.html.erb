@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p><%= link_to @return_value.method_member.model_class.project.name, @return_value.method_member.model_class.project %> | <%= link_to @return_value.method_member.model_class.name, @return_value.method_member.model_class %> | <%= link_to @return_value.method_member.name, @return_value.method_member %> | <%= link_to "Return value", @return_value %></p>
+
+<p>
+  <b>Method member:</b>
+  <%= link_to @return_value.method_member.name, @return_value.method_member %>
+</p>
+
+<p>
+  <b>Data type:</b>
+  <%= link_to @return_value.data_type.name, @return_value.data_type %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @return_value.description %>
+</p>
+
+<p>
+  <b>Warning:</b>
+  <%= @return_value.warning %>
+</p>
+
+<br/>
+<%= link_to 'Edit', edit_return_value_path(@return_value) %>
+<%= link_to 'Back', @return_value.method_member %>

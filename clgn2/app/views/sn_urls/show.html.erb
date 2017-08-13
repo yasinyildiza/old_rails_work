@@ -1,0 +1,27 @@
+<h2 class="page_name"><%= (t "show_sn_url")%></h2>
+<div class="inner_wrap">
+  <div class="field_list">
+    <div class="field">
+      <label class="show_label"><%= (t "list_attributes.id") %></label>
+      <span><%= @sn_url.id %></span>
+    </div>
+    <div class="field odd">
+      <label class="show_label"><%= (t "list_attributes.url") %></label>
+      <a href="<%= @sn_url.value %>"><%= @sn_url.value %></a>
+    </div>
+    <div class="field">
+      <label class="show_label"><%= (t "list_attributes.sn_code") %></label>
+      <span><%= @sn_url.sn_code.value %></span>
+    </div>
+    <div class="field">
+      <label class="show_label"><%= (t "list_attributes.number_of_digits") %></label>
+      <span><%= @sn_url.sn_code.number_of_digits %></span>
+    </div>
+    <% unless @sn_url.sn_code.short_name.nil? %>
+      <div class="field">
+        <label class="show_label"><%= (t "list_attributes.short_name") %></label>
+        <span><%= @sn_url.sn_code.short_name %></span>
+      </div>
+    <% end %>
+  </div>
+</div>

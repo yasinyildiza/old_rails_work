@@ -1,0 +1,9 @@
+<h1>New Return Value</h1>
+
+<%= render 'form' %>
+
+<% if @method_member %>
+  <%= link_to 'Back', @method_member %>
+<% else %>
+  <%= link_to 'Back', return_values_path %>
+<% end %>

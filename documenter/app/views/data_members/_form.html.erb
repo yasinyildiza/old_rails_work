@@ -1,0 +1,54 @@
+<%= simple_form_for(@data_member) do |f| %>
+  <% if @data_member.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@data_member.errors.count, "error") %> prohibited this data_member from being saved:</h2>
+
+      <ul>
+      <% @data_member.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if @model_class %>
+    <div class="field">
+      <%= f.label :model_class %>
+      <%= f.hidden_field :model_class_id, :value => @model_class.id %>
+      <%= link_to @model_class.project.name, @model_class.project %> | <%= link_to @model_class.name, @model_class %>
+    </div>
+  <% else %>
+    <p><%= link_to @data_member.model_class.project.name, @data_member.model_class.project %> | <%= link_to @data_member.model_class.name, @data_member.model_class %></p>
+    <div class="field">
+      <%= f.label :model_class %><br />
+      <%= f.input :model_class_id, label: false, :collection => ModelClass.all.collect{|x| [x.name, x.id]}, :as => :select %>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :data_type %><br />
+    <%= f.input :data_type_id, label: false, :collection => DataType.all.collect{|x| [x.name, x.id]}, :as => :select %>
+  </div>
+  <div class="field">
+    <%= f.label :calculation %><br />
+    <%= f.text_field :calculation %>
+  </div>
+  <div class="field">
+    <%= f.label :default_value %><br />
+    <%= f.text_field :default_value %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :warning %><br />
+    <%= f.text_field :warning %>
+  </div>
+  <div class="actions">
+    <%= f.submit :value => "Save" %>
+  </div>
+<% end %>

@@ -1,0 +1,18 @@
+<tr>
+    <td><%= work.id %></td>
+    <td><%= link_to work.category.name, category_path(work.category) %></td>
+    <% if work.project %>
+        <td><%= link_to work.project.name, project_path(work.project) %></td>
+    <% else %>    
+        <td><%= (t "other") %></td>
+    <% end %>
+    <td><%= link_to work.name, work_path(work) %></td>
+    <td><%= work.description %></td>
+    <td class="act">
+        <%= link_to (t "actions.show"), work_path(work) %>
+        <% if work.category.id != 1 %>
+            <%= link_to (t "actions.edit"), edit_work_path(work) %>
+            <%= link_to (t "actions.destroy"), work_path(work), confirm: (t "actions.confirm"), method: :delete %>
+        <% end %>
+    </td>
+</tr>

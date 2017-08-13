@@ -1,0 +1,15 @@
+<div class="image_world text left_title" id="category_title">
+	<%= link_to (t "model.category.plural"), categories_path, :class => "image_world left_link" %>
+</div>
+<div class="image_world container left category" id="left_category_container">
+	<% if categories.count > 0 %>
+		<% categories.each do |category| %>
+			<div class="image_world left_item category" id="left_item_c<%= category.id %>">
+				<%= link_to category.name, category_path(category), :onclick => "leftItemSelected(event)", :class => "image_world left_link", :id => "left_category_#{category.id}" %>
+			</div>
+		<% end %>
+	<% else %>
+		<div class="image_world text not_exist"><%= (t "model.work.not_exist").upcase %></div>
+	<% end %>
+</div>
+<%= link_to (t "actions.new_category"), new_category_path, :class => "image_world left_item new", :id => "new_category" %>

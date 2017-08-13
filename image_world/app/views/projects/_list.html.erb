@@ -1,0 +1,15 @@
+<div class="image_world text left_title" id="project_title">
+	<%= link_to (t "model.project.plural"), projects_path, :class => "image_world left_link" %>
+</div>
+<div class="image_world container left project" id="left_project_container">
+	<% if projects.count > 0 %>
+		<% projects.each do |project| %>
+			<div class="image_world left_item project" id="left_item_p<%= project.id %>">
+				<%= link_to project.name, project_path(project), :onclick => "leftItemSelected(event)", :class => "image_world left_link", :id => "left_project_#{project.id}" %>
+			</div>
+		<% end %>
+	<% else %>
+		<div class="image_world text mini not_exist"><%= (t "model.project.not_exist").upcase %></div>
+	<% end %>
+</div>
+<%= link_to (t "actions.new_project"), new_project_path, :class => "image_world left_item new", :id => "new_project" %>

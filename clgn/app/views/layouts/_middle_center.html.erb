@@ -1,0 +1,6 @@
+<div class="center middle_layout">
+  <% unless current_user%>
+    <%= yield :authentication_item %>
+  <%end %>
+  <%= yield %>
+</div>

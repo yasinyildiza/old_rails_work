@@ -1,0 +1,10 @@
+<tr>
+    <td><%= project.id %></td>
+    <td><%= link_to project.name, project_path(project) %></td>
+    <td><%= project.description %></td>
+    <td class="act">
+        <%= link_to (t "actions.show"), project_path(project) %>
+        <%= link_to (t "actions.edit"), edit_project_path(project) %>
+        <%= link_to (t "actions.destroy"), project_path(project), confirm: (t "actions.confirm"), method: :delete %>
+    </td>
+</tr>

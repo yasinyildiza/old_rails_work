@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<p><%= link_to @data_member.model_class.project.name, @data_member.model_class.project %> | <%= link_to @data_member.model_class.name, @data_member.model_class %> | <%= link_to @data_member.name, @data_member %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @data_member.name %>
+</p>
+
+<p>
+  <b>Model Class:</b>
+  <%= link_to @data_member.model_class.name, @data_member.model_class %>
+</p>
+
+<p>
+  <b>Data type:</b>
+  <%= link_to @data_member.data_type.name, @data_member.data_type %>
+</p>
+
+<p>
+  <b>Calculation:</b>
+  <%= @data_member.calculation %>
+</p>
+
+<p>
+  <b>Default Value:</b>
+  <%= @data_member.default_value %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @data_member.description %>
+</p>
+
+<p>
+  <b>Warning:</b>
+  <%= @data_member.warning %>
+</p>
+
+<br/>
+<%= link_to 'Edit', edit_data_member_path(@data_member) %> | 
+<%= link_to 'Back', @data_member.model_class %>

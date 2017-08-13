@@ -1,0 +1,95 @@
+<p id="notice"><%= notice %></p>
+
+<p><%= link_to @model_class.project.name, @model_class.project %> | <%= link_to @model_class.name, @model_class %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @model_class.name %>
+</p>
+
+<p>
+  <b>Project:</b>
+  <%= link_to @model_class.project.name, @model_class.project %>
+</p>
+
+<p>
+  <b>Parent Class:</b>
+  <% if @model_class.parent_class %>
+    <%= link_to @model_class.parent_class.name, @model_class.parent_class %>
+  <% else %>
+    <%= "None" %>
+  <% end %>
+</p>
+
+<p>
+  <b>Class type:</b>
+  <%= link_to @model_class.class_type.name, @model_class.class_type %>
+</p>
+
+<p>
+  <b>Abstract:</b>
+  <%= @model_class.abstract %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @model_class.description %>
+</p>
+
+<p>
+  <b>Warning:</b>
+  <%= @model_class.warning %>
+</p>
+
+<% if @model_class.owner_classes.count > 0 %>
+  <p>
+    <b>Owner Classes:</b>
+    <% @model_class.owner_classes.each do |owner_class| %>
+      <%= link_to owner_class.name, owner_class %>
+    <% end %>
+  </p>
+<% end %>
+
+<br/>
+<p><b>Data Members</b> | <%= link_to "New", new_data_member_path(:model_class_id => @model_class.id) %></p>
+<% if @model_class.data_members.count > 0 %> 
+  <% @model_class.data_members.each do |data_member| %>
+  <p><%= link_to data_member.data_type.name, data_member.data_type %> <%= link_to data_member.name, data_member %> <%= link_to 'Edit', edit_data_member_path(data_member, :model_class_id => @model_class.id) %> | <%= link_to 'Destroy', data_member, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  <p><%= data_member.description %></p>
+  <% end %>
+<% else %>
+  <p>None</p>
+<% end %>
+
+
+<br/>
+<p><b>Method Members</b> | <%= link_to "New", new_method_member_path(:model_class_id => @model_class.id) %></p>
+<% if @model_class.method_members.count > 0 %> 
+  <% @model_class.method_members.each do |method_member| %>
+    <p>
+      <%= link_to method_member.method_type.character, method_member.method_type %>
+      <% if method_member.return_value %>
+        <%= link_to method_member.return_value.data_type.name, method_member.return_value %>
+      <% else %>
+        <%= link_to @void.name, @void %>
+      <% end %>
+      <%= link_to method_member.name, method_member %>(
+      <% method_member.method_parameters.each_with_index do |method_parameter, index| %>
+        <%= link_to method_parameter.data_type.name, method_parameter.data_type %>
+        <%= link_to method_parameter.name, method_parameter %>
+        <% unless index == method_member.method_parameters.count - 1 %>
+          ,
+        <% end %>
+      <% end %>
+      )
+      <%= link_to 'Edit', edit_method_member_path(method_member, :model_class_id => @model_class.id) %> | <%= link_to 'Destroy', method_member, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </p>
+    <p><%= method_member.description %></p>
+  <% end %>
+<% else %>
+  <p>None</p>
+<% end %>
+
+<br/>
+<%= link_to 'Edit', edit_model_class_path(@model_class) %>
+<%= link_to 'Back', @model_class.project %>

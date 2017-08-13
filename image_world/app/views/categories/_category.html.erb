@@ -1,0 +1,12 @@
+<tr>
+    <td><%= category.id %></td>
+    <td><%= link_to category.name, category_path(category) %></td>
+    <td><%= category.description %></td>
+    <td class="act">
+        <%= link_to (t "actions.show"), category_path(category) %>
+        <%= link_to (t "actions.edit"), edit_category_path(category) %>
+        <% if category.id != 1 %>
+        	<%= link_to (t "actions.destroy"), category_path(category), confirm: (t "actions.confirm"), method: :delete %>
+        <% end %>
+    </td>
+</tr>

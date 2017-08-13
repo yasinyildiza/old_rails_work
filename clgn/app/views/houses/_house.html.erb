@@ -1,0 +1,32 @@
+<tr>
+    <td><%= house.id %></td>
+    <td><%= house.sn_code.code %></td>
+    <td><%= house.heading %></td>
+    <td><%= house.user.real_user.name %></td>
+    <td><%= house.city.name %></td>
+    <td><%= house.town.name %></td>
+    <td><%= AdType[house.ad_type] %></td>
+    <td><%= BuildingCondition[house.building_condition] %></td>
+    <td><%= HeatingType[house.heating_type] %></td>
+    <td><%= HousingType[house.housing_type] %></td>
+    <td><%= StatusOfUse[house.status_of_use] %></td>
+    <td><%= FuelType[house.fuel_type] %></td>
+    <td><%= house.price %> <%= Currency[house.currency] %></td>
+    <td><%= house.number_of_rooms %></td>
+    <td><%= house.number_of_living_rooms %></td>
+    <td><%= house.number_of_bathrooms %></td>
+    <td><%= house.number_of_balconies %></td>
+    <td><%= house.m2 %></td>
+    <td><%= house.age_of_building %></td>
+    <td><%= house.number_of_floors_in_the_building %></td>
+    <td><%= house.on_floor %></td>
+    <td><%= house.due %> <%= Currency[house.due_currency] %></td>
+    <td><%= house.advanced_payment %> <%= Currency[house.advanced_payment_currency] %></td>
+    <td><%= house.for_student_single ? (t "yes_for_single") : (t "yes_for_single") %></td>
+
+    <td class="act">
+        <%= link_to (t "actions.show"), house %>
+        <%= link_to (t "actions.edit"), edit_house_path(house) %>
+        <%= link_to (t "actions.destroy"), house, method: :delete, data: { confirm: I18n.t("actions.confirm_to") } %></td>
+    </td>
+</tr>

@@ -1,0 +1,4 @@
+<h2 class="page_name"><%= (t "show_users")%></h2>
+	
+  <%= paginated_collection_content(@users, @table_id, [(t "list_attributes.id"), (t "list_attributes.email"), (t "list_attributes.general_actions")]) %>
+  <%= paginate_footer(@users) %>

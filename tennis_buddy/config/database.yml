@@ -1,0 +1,27 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: tennis_buddy_development
+  pool: 5
+  username: root
+  password: 
+
+test:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: tennis_buddy_test
+  pool: 5
+  username: root
+  password: 
+
+production:
+  host: localhost
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: rails
+  pool: 5
+  username: abcde 
+  password: xyztu

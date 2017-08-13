@@ -1,0 +1,9 @@
+<% @towns = Town.find_all_by_city_id(params[:id]) %>
+$('#towns').find("option").remove();
+opt_text_none = "<option value><%=t 'none'%></option>";
+$('#towns').append(opt_text_none);
+<% @towns.each do |town| %>
+  opt_text = "<option value='<%=town.id%>'><%=town.name%></option>";
+  $('#towns').append(opt_text);
+<% end %>
+$("#towns").val($("#towns")[0].options[0].value);

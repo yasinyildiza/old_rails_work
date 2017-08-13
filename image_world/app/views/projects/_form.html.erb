@@ -1,0 +1,31 @@
+<% if @project.errors.any? or flash[:error] %>
+  <div class="alert-message error">
+    <p>
+      <strong>
+          <% if @project.errors.any? %>
+            <%= t "errors.save_error", :count => @project.errors.count, :save_obj => (t "project") %>
+            <br />
+            <% @project.errors.full_messages.each do |msg| %>
+                <strong>- <%= msg %></strong><br/>
+            <% end %>
+          <% elsif flash[:error] %>
+            <%= (t "errors.save_error") %> <%= flash[:error] %>
+          <% end %>
+      </strong>
+    </p>
+  </div>
+<% end %>
+
+<%= simple_form_for @project do |f| %>
+  <div class="image_world inner_wrap">
+    <div class="image_world form fields">
+      <div class="image_world form field">
+        <%= f.input :name, :label => (t "attributes.name"), :label_html => {:class => "image_world form field label"} %> 
+      </div>
+      <div class="image_world form field odd">
+        <%= f.input :description, :label => (t "attributes.description"), :label_html => {:class => "image_world form field label"} %>
+      </div>
+      <div class="image_world container form submit"><%= f.button :submit, :id=> "fs", :value=>(t "actions.save") %></div>
+    </div>
+  </div>
+<% end %>

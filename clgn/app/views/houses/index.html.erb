@@ -1,0 +1,30 @@
+<h2 class="page_name"><%= (t "show_houses")%></h2>
+	
+  <%= paginated_collection_content(@houses, @table_id, [
+  	(t "list_attributes.id"),
+    (t "list_attributes.sn_code"),
+  	(t "list_attributes.heading"),
+  	(t "list_attributes.ad_owner_name"),
+  	(t "list_attributes.city"),
+  	(t "list_attributes.town"),
+  	(t "list_attributes.ad_type"),
+  	(t "list_attributes.building_condition"),
+  	(t "list_attributes.heating_type"),
+  	(t "list_attributes.housing_type"),
+  	(t "list_attributes.status_of_use"),
+  	(t "list_attributes.fuel_type"),
+  	(t "list_attributes.price"),
+  	(t "list_attributes.number_of_rooms"),
+  	(t "list_attributes.number_of_living_rooms"),
+  	(t "list_attributes.number_of_bathrooms"),
+  	(t "list_attributes.number_of_balconies"),
+  	(t "list_attributes.m2"),
+  	(t "list_attributes.age_of_building"),
+  	(t "list_attributes.number_of_floors_in_the_building"),
+  	(t "list_attributes.on_floor"),
+  	(t "list_attributes.due"),
+  	(t "list_attributes.advanced_payment"),
+  	(t "list_attributes.for_student_single"),
+    (t "list_attributes.actions")
+    ]) %>
+  <%= paginate_footer(@houses) %>

@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p><%= link_to @method_parameter.method_member.model_class.project.name, @method_parameter.method_member.model_class.project %> | <%= link_to @method_parameter.method_member.model_class.name, @method_parameter.method_member.model_class %> | <%= link_to @method_parameter.method_member.name, @method_parameter.method_member %> | <%= link_to "Parameter-#{@method_parameter.name}", @method_parameter %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @method_parameter.name %>
+</p>
+
+<p>
+  <b>Method member:</b>
+  <%= link_to @method_parameter.method_member.name, @method_parameter.method_member %>
+</p>
+
+<p>
+  <b>Data type:</b>
+  <%= link_to @method_parameter.data_type.name, @method_parameter.data_type %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @method_parameter.description %>
+</p>
+
+<p>
+  <b>Warning:</b>
+  <%= @method_parameter.warning %>
+</p>
+
+<br/>
+<%= link_to 'Edit', edit_method_parameter_path(@method_parameter) %>
+<%= link_to 'Back', @method_parameter.method_member %>

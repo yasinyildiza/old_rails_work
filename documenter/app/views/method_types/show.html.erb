@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @method_type.name %>
+</p>
+
+<p>
+  <b>Character:</b>
+  <%= @method_type.character %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @method_type.description %>
+</p>
+
+<br/>
+<%= link_to 'Edit', edit_method_type_path(@method_type) %> |
+<%= link_to 'Back', method_types_path %>

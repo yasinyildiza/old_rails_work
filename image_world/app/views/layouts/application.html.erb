@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title>Image World</title>
+	  <%= stylesheet_link_tag "application", :media => "all" %>
+	  <%= stylesheet_link_tag "jquery-ui", :media => "all" %>
+	  <%= javascript_include_tag "application" %>
+	  <%= csrf_meta_tags %>
+	</head>
+	<body>
+		<div class="image_world container" id="main">
+			<% if current_user %>
+			  <div class="image_world application.title">
+			  	<%= link_to "Image World", root_path, :class => "image_world application", :id => "title" %>
+			  </div>
+			  <div class="image_world container" id="path">
+				<% if current_user %>
+				  <%= yield :path %>
+				<% end %>
+			  </div>
+			  <div class="image_world button" id="right_user">
+			  	<div class="image_world container" id="user_name">
+			      <%= current_user.email %>
+			    </div>
+			    <div class="image_world container" id="logout_button">
+			      <%= link_to (t "login.sign_out"), destroy_user_session_path, :method => "delete" %>
+			    </div>
+			  </div>
+			  <div class="image_world container" id="left">
+				<%= render :partial => "categories/list", :locals => {:categories => @sorted_categories} %>
+				<%= render :partial => "projects/list", :locals => {:projects => @sorted_projects} %>
+				
+			  </div>
+			  <div class="image_world container" id="all_content">
+			    <div class="image_world container" id="general_actions">
+			      <%= yield :general_actions %>
+			    </div>
+			    <div class="image_world container" id="page_title">
+			      <%= yield :page_title %>
+			    </div>
+			    <div class="image_world container" id="content">
+			      <%= yield %>
+			    </div>
+			  </div>
+			<% else %>
+			  <div class="image_world container" id="login_area">
+				<%= yield :authentication_item %>
+			  </div>
+			<% end %>
+			
+		</div>
+	</body>
+</html>

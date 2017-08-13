@@ -1,0 +1,11 @@
+<% if params[:action].to_s != 'edit' and params[:action].to_s != 'update'  %>
+  <div class='field'>
+    <%= f.input :email, :label=> (t "list_attributes.email"), :label_html => {:class => "form_label"} %>
+  </div>
+  <%= render :partial => 'users/password_form' , :locals => {:f => f}%>
+  <div class='sub_form' id='subform'>
+  </div>
+<% end %>
+<div class='field'>
+  <%=  f.hidden_field :user_type, :id => "user_type" , :value => user_type %>
+</div>

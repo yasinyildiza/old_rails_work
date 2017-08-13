@@ -1,0 +1,326 @@
+body {
+  width: 1200px;
+  margin: auto;
+  background-color: #666666;
+}
+
+a {
+  text-decoration: none !important;
+  color: black !important;
+}
+
+.terspective {
+  position: relative;
+  float: left;
+  margin: 0px;
+  padding: 0px;
+  border: 0px solid #000000;
+  outline: 0;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-indent: 0px;
+  text-decoration: none;
+}
+
+.container {
+  width: auto;
+  height: auto;
+}
+
+.text {
+  width: auto;
+  height: auto;
+}
+
+#main {
+  width: 1200px;
+  height: 828px;
+  margin: auto;
+  background-color: #DDDDDD;
+}
+
+.application.title {
+  width: 320;
+  height: 40px;
+  background-color: #FF0000;
+}
+
+.application#title {
+  width: 300px;
+  height: 25px;
+  padding: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 20px;
+  background-color: #444444;
+}
+
+.container#login_area {
+  width: 400px;
+  height: 300px;
+  margin-top: 134px;
+  margin-bottom: 394px;
+  margin-left: 400px;
+  margin-right: 400px;
+}
+
+.container#login_container {
+  width: 100%;
+  height: 100%;
+  background-color: #556737;
+}
+
+.text#login_title {
+  width: 100%;
+  height: 35px;
+  font-size: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-indent: 10px;
+  text-align: left;
+  background-color: #556787;
+}
+
+.container.login#login_top {
+  width: 100%;
+  height: auto;
+  margin-top: 25px;
+}
+
+.container.field.login {
+  width: 100%;
+  margin-top: 20px;
+  clear: both;
+  float: right;
+}
+
+.container.login#login_bottom {
+  width: 100%;
+  height: auto;
+  margin-top: 15px;
+}
+
+.container.field.login.checkbox {
+  margin-top: 0px;
+}
+
+.container.field.login.button {
+  height: 40px;
+  padding-top: 10px;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+#sign_in_button, #sign_up_button {
+  width: 150px;
+  height: 40px;
+  padding-top: 5px;
+  font-size: 20px;
+  background-color: #FF6544;
+  color: #983420;
+  border: 2px solid #000000;
+}
+
+#devise_links {
+  width: 0px;
+  height: 0px;
+}
+
+#right_user {
+  float: right;
+  width: 280px;
+  height: 25px;
+  padding: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 20px;
+  background-color: #758967;
+}
+
+#user_name {
+  font-size: 20px;
+  padding-right: 5px;
+  
+}
+
+#logout_button {
+  padding-left: 4px;
+  font-size: 20px;
+  border-left: 1px solid black;
+}
+
+#content {
+  width: 100%;
+  height: 748px;
+  background-color: #875032;
+}
+
+.inner_wrap {
+  width: 100%;
+}
+
+.form.fields {
+  width: 365px;
+  margin-left: 195px;
+  margin-top: 50px;
+}
+
+.form.fields.without_margin {
+  width: 365px;
+  margin-left: 195px;
+  margin-top: 0px;
+}
+
+.form.field {
+  width: 100%;
+  height: 30px;
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+.form.field.odd {
+}
+
+.form.field.label {
+  width: 110px;
+}
+
+.form.field.label.remember_me {
+  width: 120px;
+}
+
+.form.field.input {
+  width: 250px;
+  max-height: 60px;
+  margin-left: 5px;
+  text-align: left;
+  font-size: 16px;
+  text-indent: 5px;
+}
+
+.container.form.submit {
+  width: 100%;
+}
+
+.form.field.input.submit, #fs {
+  float: right;
+  width: 60px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.form.field.input.checkbox {
+  width: 50px;
+  margin-left: 100px;
+  height: 20px;
+}
+
+#login {
+  margin-right: 35px;
+}
+
+.text.not_exist {
+  width: 100%;
+  font-size: 40px;
+  margin-top: 250px;
+}
+
+.text.mini.not_exist {
+  width: 100%;
+  font-size: 16px;
+  margin-top: 100px;
+}
+
+.classic {
+  width: 100%;
+  position: relative;
+  z-index: 5;
+  background-color: #125125;
+}
+
+.classic thead {
+  background: #dbdbdb;
+  height: 32px;
+}
+
+.classic th {
+  text-align: left;
+  padding: 0 5px;
+  background: url("/images/th_seperator.png") no-repeat right;
+  color: #676e76;
+  text-shadow: 0 1px 0 #fff;
+  text-align: center;
+}
+
+.classic th:last-child {
+  background: none;
+}
+
+.classic td {
+  height: 32px;
+  color: #676e76;
+  padding: 0 5px;
+  background: url("/images/td_seperator.png") no-repeat right;
+}
+
+.classic td img {
+    width: 25px;
+    cursor: pointer;
+}
+
+.classic td a img {
+  padding: 6px 0;
+}
+
+.classic th {
+  height: 32px;
+}
+
+.classic td:last-child {
+  background: none;
+}
+
+.classic td:first-child {
+  font-weight: bold;
+  text-align: center;
+}
+
+.classic#added_aims_table td{
+    font-weight: normal;
+    text-align: center;
+}
+
+.classic thead th:first-child {
+  text-align: center;
+  width: 30px;
+}
+
+.classic tbody tr:nth-child(even) {
+  background: #fff;
+}
+
+.classic tbody tr:nth-child(odd) {
+  background: #eee;
+}
+
+.classic .act {
+  width: 35%;
+}
+
+.classic .act a {
+  color: #263f5d;
+  display: inline-block;
+  border-right: 1px solid #263f5d;
+  font-size: 12px;
+  text-indent: 0;
+}
+
+.classic .act a {
+  padding-right: 5px;
+}
+
+.classic .act a:last-child {
+  border-right: none;
+}

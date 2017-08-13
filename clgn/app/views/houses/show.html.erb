@@ -1,0 +1,101 @@
+<h2 class="page_name"><%= (t "show_house")%></h2>
+<div class="inner_wrap">
+  <div class="field_list">
+    <div class="field odd">
+      <label class="show_label"><%= (t "list_attributes.id") %></label>
+      <span><%= @house.id %></span>
+    </div>
+    <div class="field odd">
+      <label class="show_label"><%= (t "list_attributes.sn_code") %></label>
+      <span><%= @house.sn_code.code %></span>
+    </div>
+    <div class="field">
+      <label class="show_label"><%= (t "list_attributes.heading") %></label>
+      <span><%= @house.heading %></span>
+    </div>
+    <div class="field">
+      <label class="show_label"><%= (t "list_attributes.ad_owner_name") %></label>
+      <span><%= @house.user.real_user.name %></span>
+    </div>
+    <div class="field">
+      <label class="show_label"><%= (t "list_attributes.city") %></label>
+      <span><%= @house.city.name %></span>
+    </div>
+    <div class="field odd">
+      <label class="show_label"><%= (t "list_attributes.town") %></label>
+      <span><%= @house.town.name %></span>
+    </div>
+    <div class="field">
+      <label class="show_label"><%= (t "list_attributes.ad_type") %></label>
+      <span><%= AdType[@house.ad_type] %></span>
+    </div>
+    <div class="field odd">
+      <label class="show_label"><%= (t "list_attributes.building_condition") %></label>
+      <span><%= BuildingCondition[@house.building_condition] %></span>
+    </div>
+    <div class="field">
+      <label class="show_label"><%= (t "list_attributes.heating_type") %></label>
+      <span><%= HeatingType[@house.heating_type] %></span>
+    </div>
+    <div class="field">
+      <label class="show_label"><%= (t "list_attributes.housing_type") %></label>
+      <span><%= HousingType[@house.housing_type] %></span>
+    </div>
+    <div class="field odd">
+      <label class="show_label"><%= (t "list_attributes.status_of_use") %></label>
+      <span><%= StatusOfUse[@house.status_of_use] %></span>
+    </div>
+    <div class="field">
+      <label class="show_label"><%= (t "list_attributes.fuel_type") %></label>
+      <span><%= FuelType[@house.fuel_type] %></span>
+    </div>
+    <div class="field odd">
+      <label class="show_label"><%= (t "list_attributes.price") %></label>
+      <span><%= @house.price %> <%= Currency[@house.currency] %></span>
+    </div>
+    <div class="field">
+      <label class="show_label"><%= (t "list_attributes.number_of_rooms") %></label>
+      <span><%= @house.number_of_rooms %></span>
+    </div>
+    <div class="field">
+      <label class="show_label"><%= (t "list_attributes.number_of_living_rooms") %></label>
+      <span><%= @house.number_of_living_rooms %></span>
+    </div>
+    <div class="field odd">
+      <label class="show_label"><%= (t "list_attributes.number_of_bathrooms") %></label>
+      <span><%= @house.number_of_bathrooms %></span>
+    </div>
+    <div class="field">
+      <label class="show_label"><%= (t "list_attributes.number_of_balconies") %></label>
+      <span><%= @house.number_of_balconies %></span>
+    </div>
+    <div class="field">
+      <label class="show_label"><%= (t "list_attributes.m2") %></label>
+      <span><%= @house.m2 %></span>
+    </div>
+    <div class="field odd">
+      <label class="show_label"><%= (t "list_attributes.age_of_building") %></label>
+      <span><%= @house.age_of_building %></span>
+    </div>
+    <div class="field">
+      <label class="show_label"><%= (t "list_attributes.number_of_floors_in_the_building") %></label>
+      <span><%= @house.number_of_floors_in_the_building %></span>
+    </div>
+    <div class="field">
+      <label class="show_label"><%= (t "list_attributes.on_floor") %></label>
+      <span><%= @house.on_floor %></span>
+    </div>
+    <div class="field odd">
+      <label class="show_label"><%= (t "list_attributes.due") %></label>
+      <span><%= @house.due %> <%= Currency[@house.due_currency] %></span>
+    </div>
+    <div class="field">
+      <label class="show_label"><%= (t "list_attributes.advanced_payment") %></label>
+      <span><%= @house.advanced_payment %> <%= Currency[@house.advanced_payment_currency] %></span>
+    </div>
+    <div class="field">
+      <label class="show_label"><%= (t "list_attributes.for_student_single") %></label>
+      <span><%= @house.for_student_single ? (t "yes_for_single") : (t "no_for_single") %></span>
+    </div>
+  </div>
+</div>

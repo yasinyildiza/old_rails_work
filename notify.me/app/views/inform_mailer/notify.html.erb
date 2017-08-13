@@ -1,0 +1,47 @@
+<html>
+<body>
+	<h1>notify.me</h1>
+	<h1>notify.you</h1>
+	<h1>that's the question</h1>
+	<div class="inner_wrap">
+	  <div class="field_list">
+		<div class="field odd">
+		  <label class="show_label"><%= (t "notification.attributes.id") %></label>
+		  <span><%= @notification.id %></span>
+		</div>
+		<div class="field">
+		  <label class="show_label"><%= (t "notification.attributes.notification_type") %></label>
+		  <span><%= @notification.notification_type.name %></span>
+		</div>
+		<div class="field">
+		  <label class="show_label"><%= (t "notification.attributes.notifier") %></label>
+		  <span><%= @notification.user.full_name %></span>
+		</div>
+		<div class="field odd">
+		  <label class="show_label"><%= (t "notification.attributes.full_name") %></label>
+		  <span><%= @notification.first_name %> <%= @notification.last_name %></span>
+		</div>
+		<div class="field">
+		  <label class="show_label"><%= (t "notification.attributes.subject") %></label>
+		  <span><%= @notification.subject %></span>
+		</div>
+		<div class="field odd">
+		  <label class="show_label"><%= (t "notification.attributes.content") %></label>
+		  <span><%= @notification.content %></span>
+		</div>
+		<div class="field">
+		  <label class="show_label"><%= (t "notification.attributes.day") %></label>
+		  <span><%= @notification.actual_day %></span>
+		</div>
+		<div class="field odd">
+		  <label class="show_label"><%= (t "notification.attributes.hour") %></label>
+		  <span><%= @notification.actual_hour %></span>
+		</div>
+		<div class="field odd">
+		  <label class="show_label"><%= (t "notification.attributes.notification_status") %></label>
+		  <span><%= @notification.notification_status.name %></span>
+		</div>
+	  </div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+:version: "V00.00.01"
+
+:locales:
+- :language: "Turkish"
+  :code: "tr"
+- :language: "English"
+  :code: "en"

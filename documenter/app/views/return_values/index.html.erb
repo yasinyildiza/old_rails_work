@@ -1,0 +1,29 @@
+<h1>Listing Return Values</h1>
+
+<table>
+  <tr>
+    <th>Method member</th>
+    <th>Data type</th>
+    <th>Description</th>
+    <th>Warning</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @return_values.each do |return_value| %>
+  <tr>
+    <td><%= return_value.method_member.name %></td>
+    <td><%= return_value.data_type.name %></td>
+    <td><%= return_value.description %></td>
+    <td><%= return_value.warning %></td>
+    <td><%= link_to 'Show', return_value %></td>
+    <td><%= link_to 'Edit', edit_return_value_path(return_value) %></td>
+    <td><%= link_to 'Destroy', return_value, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Return value', new_return_value_path %>

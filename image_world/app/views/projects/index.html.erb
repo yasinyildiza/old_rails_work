@@ -1,0 +1,26 @@
+<%= content_for :path do %>
+  <div class="image_world path element link first">
+    <%= (t "model.project.plural")%>
+  </div>
+<% end %>
+
+<%= content_for :general_actions do %>
+  <%= link_to (t "actions.new"), new_project_path, :class => "image_world general_action link one" %>
+<% end %>
+
+<%= content_for :page_title do %>
+  <div class="image_world text item_name">
+    <%= (t "model.project.plural")%>
+  </div>
+<% end %>
+
+<% if @projects.count > 0 %>
+  <%= paginated_collection_content(@projects, @table_id, [(t "attributes.id"), (t "attributes.name"), (t "attributes.description"), (t "attributes.general_actions")]) %>
+  <%= paginate_footer(@projects) %>
+<% else %>
+  <div class="image_world text not_exist"><%= (t "model.project.not_exist").upcase %></div>
+<% end %>
+
+<script>
+  $("#project_title").addClass("selected");
+</script>

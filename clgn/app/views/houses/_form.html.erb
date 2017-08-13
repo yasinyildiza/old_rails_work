@@ -1,0 +1,125 @@
+<% if @house.errors.any? %>
+  <div class="alert-message error">
+    <p>
+      <strong>
+          <%= t "errors.save_error", :count => @house.errors.count, :save_obj => (t "user") %>
+      </strong>
+      <br />
+      <% @house.errors.full_messages.each do |msg| %>
+          <strong>- <%= msg %></strong><br/>
+      <% end %>
+    </p>
+  </div>
+<% end %>
+
+<%= simple_form_for @house do |f| %>
+  <div class="inner_wrap">
+    <div class="form field_list">
+
+      <div class='field'>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+      </div>
+
+      <div class='field'>
+        <%= f.input :heading, :label=> (t "list_attributes.heading"), :label_html => {:class => "form_label"} %>
+      </div>
+
+      <div class='field'>
+        <%= f.association :city, :label=> (t "list_attributes.city"), :label_html => {:class => "form_label"}, :collection => City.all.collect {|x| [x.name, x.id]}, :input_html => {:onchange => "getTowns(this.value)", :id => "cities"} %>
+      </div>
+
+      <div class='field'>
+        <%= f.association :town, :label=> (t "list_attributes.town"), :label_html => {:class => "form_label"}, :collection => @towns.collect {|x| [x.name, x.id]}, :include_blank => true, :input_html => {:id => "towns"} %>
+      </div>
+
+      <div class='field'>
+        <%= f.input :ad_type, :label=> (t "list_attributes.ad_type"), :label_html => {:class => "form_label"}, :collection => AdType.all.collect {|x| [x[1], x[0]]} %>
+      </div>
+
+      <div class='field'>
+        <%= f.input :building_condition, :label=> (t "list_attributes.building_condition"), :label_html => {:class => "form_label"}, :collection => BuildingCondition.all.collect {|x| [x[1], x[0]]} %>
+      </div>
+
+      <div class='field'>
+        <%= f.input :heating_type, :label=> (t "list_attributes.heating_type"), :label_html => {:class => "form_label"}, :collection => HeatingType.all.collect {|x| [x[1], x[0]]} %>
+      </div>
+
+      <div class='field'>
+        <%= f.input :housing_type, :label=> (t "list_attributes.housing_type"), :label_html => {:class => "form_label"}, :collection => HousingType.all.collect {|x| [x[1], x[0]]} %>
+      </div>
+
+      <div class='field'>
+        <%= f.input :status_of_use, :label=> (t "list_attributes.status_of_use"), :label_html => {:class => "form_label"}, :collection => StatusOfUse.all.collect {|x| [x[1], x[0]]} %>
+      </div>
+
+      <div class='field'>
+        <%= f.input :fuel_type, :label=> (t "list_attributes.fuel_type"), :label_html => {:class => "form_label"}, :collection => FuelType.all.collect {|x| [x[1], x[0]]} %>
+      </div>
+
+      <div class='field'>
+        <%= f.input :price, :label=> (t "list_attributes.price"), :label_html => {:class => "form_label"} %>
+      </div>
+
+      <div class='field'>
+        <%= f.input :currency, :label=> (t "list_attributes.currency"), :label_html => {:class => "form_label"}, :collection => Currency.all.collect {|x| [x[1], x[0]]} %>
+      </div>
+
+      <div class='field'>
+        <%= f.input :number_of_rooms, :label=> (t "list_attributes.number_of_rooms"), :label_html => {:class => "form_label"} %>
+      </div>
+
+      <div class='field'>
+        <%= f.input :number_of_living_rooms, :label=> (t "list_attributes.number_of_living_rooms"), :label_html => {:class => "form_label"} %>
+      </div>
+
+      <div class='field'>
+        <%= f.input :number_of_bathrooms, :label=> (t "list_attributes.number_of_bathrooms"), :label_html => {:class => "form_label"} %>
+      </div>
+
+      <div class='field'>
+        <%= f.input :number_of_balconies, :label=> (t "list_attributes.number_of_balconies"), :label_html => {:class => "form_label"} %>
+      </div>
+
+      <div class='field'>
+        <%= f.input :m2, :label=> (t "list_attributes.m2"), :label_html => {:class => "form_label"} %>
+      </div>
+
+      <div class='field'>
+        <%= f.input :age_of_building, :label=> (t "list_attributes.age_of_building"), :label_html => {:class => "form_label"} %>
+      </div>
+
+      <div class='field'>
+        <%= f.input :number_of_floors_in_the_building, :label=> (t "list_attributes.number_of_floors_in_the_building"), :label_html => {:class => "form_label"} %>
+      </div>
+
+      <div class='field'>
+        <%= f.input :on_floor, :label=> (t "list_attributes.on_floor"), :label_html => {:class => "form_label"} %>
+      </div>
+
+      <div class='field'>
+        <%= f.input :due, :label=> (t "list_attributes.due"), :label_html => {:class => "form_label"} %>
+      </div>
+
+      <div class='field'>
+        <%= f.input :due_currency, :label=> (t "list_attributes.due_currency"), :label_html => {:class => "form_label"}, :collection => Currency.all.collect {|x| [x[1], x[0]]} %>
+      </div>
+
+      <div class='field'>
+        <%= f.input :advanced_payment, :label=> (t "list_attributes.advanced_payment"), :label_html => {:class => "form_label"} %>
+      </div>
+
+      <div class='field'>
+        <%= f.input :advanced_payment_currency, :label=> (t "list_attributes.advanced_payment_currency"), :label_html => {:class => "form_label"}, :collection => Currency.all.collect {|x| [x[1], x[0]]} %>
+      </div>
+
+      <div class='field'>
+        <%= f.input :for_student_single, :label=> (t "list_attributes.for_student_single"), :label_html => {:class => "form_label"}, as: :radio_buttons, :collection => [[(t "yes_for_single"), true], [(t "no_for_single"), false]] %>
+      </div>
+      
+      <div class="submit">
+        <%= f.button :submit, I18n.t("actions.save"), :id => "fs" %>
+      </div>
+
+    </div>
+  </div>
+<% end %>

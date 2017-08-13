@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  class: 
+  name: MyString
+  method_type: 
+  description: MyText
+  warning: MyText
+
+two:
+  class: 
+  name: MyString
+  method_type: 
+  description: MyText
+  warning: MyText

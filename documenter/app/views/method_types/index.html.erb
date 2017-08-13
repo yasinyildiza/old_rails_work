@@ -1,0 +1,27 @@
+<h1>Listing Method Types</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Character</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @method_types.each do |method_type| %>
+  <tr>
+    <td><%= method_type.name %></td>
+    <td><%= method_type.character %></td>
+    <td><%= method_type.description %></td>
+    <td><%= link_to 'Show', method_type %></td>
+    <td><%= link_to 'Edit', edit_method_type_path(method_type) %></td>
+    <td><%= link_to 'Destroy', method_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Method type', new_method_type_path %>

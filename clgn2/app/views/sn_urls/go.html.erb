@@ -1,0 +1,22 @@
+<% if flash[:error] %>
+  <div class="alert-message error">
+    <p>
+      <strong>
+        <%= (t "errors.save_error") %> <%= flash[:error] %>
+      </strong>
+    </p>
+  </div>
+
+<% else %>
+	<a id="hidden_link" onClick="go_to_url('<%= @sn_url.value %>')" href="#"></a>
+
+	<script>
+		$(document).ready(function(){$("#hidden_link")[0].onclick.apply($("#hidden_link")[0]);});
+		
+		function go_to_url(url)
+		{
+			window.location.href = "http://" + url;
+		}
+	</script>
+
+<% end %>

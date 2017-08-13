@@ -1,0 +1,18 @@
+<%= content_for :path do %>
+  <div class="image_world path element link first">
+    <%= (t "model.work.plural")%>
+  </div>
+<% end %>
+
+<%= content_for :general_actions do %>
+  <%= link_to (t "actions.new"), new_work_path, :class => "image_world general_action link one" %>
+<% end %>
+
+<%= content_for :page_title do %>
+  <div class="image_world text item_name">
+    <%= (t "model.work.plural")%>
+  </div>
+<% end %>
+
+<%= paginated_collection_content(@works, @table_id, [(t "attributes.id"), (t "model.category.singular"), (t "model.project.singular"), (t "attributes.name"), (t "attributes.description"), (t "attributes.general_actions")]) %>
+<%= paginate_footer(@works) %>

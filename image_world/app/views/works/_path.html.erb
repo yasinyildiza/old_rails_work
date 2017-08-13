@@ -1,0 +1,21 @@
+<% if work.project %>
+  <div class="image_world path element link first">
+    <%= link_to work.project.name, project_path(work.project) %>
+  </div>
+  <div class="image_world path element text seperator"> > </div>
+  <div class="image_world path element link second">
+    <%= link_to work.category.name, category_path(work.category) %>
+  </div>
+  <div class="image_world path element text seperator"> > </div>
+  <div class="image_world path element link third">
+    <%= link_to work.name, work_path(work) %>
+  </div>
+<% else %>
+  <div class="image_world path element link first">
+    <%= link_to work.category.name, category_path(work.category) %>
+  </div>
+  <div class="image_world path element text seperator"> > </div>
+  <div class="image_world path element link second">
+    <%= link_to work.name, work_path(work) %>
+  </div>
+<% end %>

@@ -1,0 +1,29 @@
+<% if image.work.project %>
+  <div class="image_world path element link first">
+    <%= link_to image.work.project.name, project_path(image.work.project) %>
+  </div>
+  <div class="image_world path element text seperator"> > </div>
+  <div class="image_world path element link second">
+    <%= link_to image.work.category.name, category_path(image.work.category) %>
+  </div>
+  <div class="image_world path element text seperator"> > </div>
+  <div class="image_world path element link third">
+    <%= link_to image.work.name, work_path(image.work) %>
+  </div>
+  <div class="image_world path element text seperator"> > </div>
+  <div class="image_world path element link forth">
+    <%= link_to image.version, image_path(image) %>
+  </div>
+<% else %>
+  <div class="image_world path element link first">
+    <%= link_to image.work.category.name, category_path(image.work.category) %>
+  </div>
+  <div class="image_world path element text seperator"> > </div>
+  <div class="image_world path element link second">
+    <%= link_to image.work.name, work_path(image.work) %>
+  </div>
+  <div class="image_world path element text seperator"> > </div>
+  <div class="image_world path element link third">
+    <%= link_to image.version, image_path(image) %>
+  </div>
+<% end %>

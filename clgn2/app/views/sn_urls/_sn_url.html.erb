@@ -1,0 +1,17 @@
+<tr>
+    <td><%= sn_url.id %></td>
+    <td><%= sn_url.sn_code.value %></td>
+    <td><%= sn_url.value %></td>
+    <td><%= sn_url.sn_code.number_of_digits %></td>
+    <% if current_user %>
+    	<td><%= sn_url.sn_code.number_of_digits %></td>
+    <% else %>
+    	<td>N/A</td>
+    <% end %>
+
+    <td class="act">
+        <%= link_to (t "actions.show"), sn_url %>
+        <%= link_to (t "actions.edit"), edit_sn_url_path(sn_url) %>
+        <%= link_to (t "actions.destroy"), sn_url, method: :delete, data: { confirm: I18n.t("actions.confirm_to") } %></td>
+    </td>
+</tr>

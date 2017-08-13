@@ -1,0 +1,44 @@
+<% if @person.errors.any? %>
+  <div class="alert-message error">
+    <p>
+      <strong>
+          <%= t "errors.save_error", :count => @person.errors.count, :save_obj => (t "user") %>
+      </strong>
+      <br />
+      <% @person.errors.full_messages.each do |msg| %>
+          <strong>- <%= msg %></strong><br/>
+      <% end %>
+    </p>
+  </div>
+<% end %>
+
+<%= simple_form_for @person do |f| %>
+  <div class="inner_wrap">
+    <div class="form field_list">
+
+      <%= f.simple_fields_for :user, @person.build_user do |fu|%>
+        <%= render :partial => 'users/form' , :locals => {:f => fu, :user_type => 1}%>
+      <% end %>
+
+      <div class='field'>
+        <%= f.input :first_name, :label=> (t "list_attributes.first_name"), :label_html => {:class => "form_label"} %>
+      </div>
+
+      <div class='field'>
+        <%= f.input :last_name, :label=> (t "list_attributes.last_name"), :label_html => {:class => "form_label"} %>
+      </div>
+
+      <div class='field'>
+        <%= f.input :phone_number, :label=> (t "list_attributes.phone_number"), :label_html => {:class => "form_label"} %>
+      </div>
+
+      <div class='field'>
+        <%= f.input :birthday, :label=> (t "list_attributes.birthday"), :label_html => {:class => "form_label"}, as: :date_picker, :ignore_hour => true %>
+      </div>
+
+      <div class="submit">
+        <%= f.button :submit, I18n.t("actions.save"), :id => "fs" %>
+      </div>
+    </div>
+  </div>
+<% end %>

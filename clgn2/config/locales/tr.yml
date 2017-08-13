@@ -1,0 +1,199 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+tr:
+
+  time:
+    formats:
+      default: "%d %b %Y %H:%M:%S %z" #14 Aug 2012 14:17:48 +0300
+  date:
+    formats:
+      default: "%Y/%m/%d"
+  welcome: "Hoşgeldiniz"
+  to_home_page: "Anasayfa"
+  change_password: "Şifre Değiştir"
+  please_wait: "Lütfen Bekleyiniz..."
+  person: "Bireysel"
+  company: "Kurumsal"
+  city: "İl"
+  town: "İlçe"
+  house: "Ev"
+  car: "Araba"
+  none: "Hiç biri"
+  show_users: "Kullanıcıları Görüntüle"
+  show_user: "Kullanıcı Görüntüle"
+  edit_user: "Kullanıcı Düzenle"
+  new_user: "Yeni Kullanıcı"
+  show_people: "Kişileri Görüntüle"
+  show_person: "Kişi Görüntüle"
+  edit_person: "Kişi Düzenle"
+  new_person: "Yeni Kişi"
+  show_companies: "Firmaları Görüntüle"
+  show_company: "Firma Görüntüle"
+  edit_company: "Firma Düzenle"
+  new_company: "Yeni Firma"
+  show_houses: "Evleri Görüntüle"
+  show_house: "Ev Görüntüle"
+  edit_house: "Ev Düzenle"
+  new_house: "Yeni Ev"
+  yes_for_single: "Evet"
+  no_for_single: "Hayır"
+  search: "Arama"
+  new_sn_code: "Yeni SN Kod"
+  search_sn_code: "SN Kod Ara"
+  new_sn_url: "Yeni SN URL"
+  search_sn_url: "SN URL Ara"
+  show_sn_url: "SN URL Görüntüle"
+  home_page:
+    welcome: "Hoşgeldiniz"
+    new_ad: "İlan Ver"
+    search_ad: "İlan Ara"
+    search: "İlan Ara"
+    new: "İlan Ver"
+    search_house: "Ev Ara"
+    search_car: "Araba Ara"
+    new_house: "Ev İlanı Ver"
+    new_car: "Araba İlanı Ver"
+
+  list_attributes:
+    general_actions: "İşlemler"
+    id: "İd"
+    name: "Ad"
+    email: "e-posta"
+    first_name: "Ad"
+    last_name: "Soyad"
+    phone_number: "Telefon Numarası"
+    birthday: "Doğum Tarihi"
+    authorized_person: "Yetkili Kişi"
+    website: "Web"
+    password: "Şifre"
+    password_confirmation: "Şifre (Tekrar)"
+    ad_type: "İlan Türü"
+    building_condition: "Bina Durumu"
+    heating_type: "Isınma Tipi"
+    housing_type: "Konut Tipi"
+    status_of_use: "Kullanım Durumu"
+    fuel_type: "Yakıt Tipi"
+    heading: "İlan Başlığı"
+    price: "Fiyat"
+    number_of_rooms: "Oda Sayısı"
+    number_of_living_rooms: "Salon Sayısı"
+    number_of_bathrooms: "Banyo Sayısı"
+    number_of_balconies: "Balkon Sayısı"
+    m2: "m2"
+    age_of_building: "Bina Yaşı"
+    number_of_floors_in_the_building: "Binadaki Kat Sayısı"
+    on_floor: "Bulunduğu Kat"
+    due: "Aidat"
+    due_currency: "Aidat Para Birimi"
+    advanced_payment: "Depozito"
+    advanced_payment_currency: "Depozito Para Birimi"
+    for_student_single: "Öğrenciye/Bekara Uygun"
+    ad_owner_name: "İlan Sahibinin Adı"
+    town: "İlçe"
+    city: "Şehir"
+    currency: "Para Birimi"
+    sn_code: "SN Kod"
+    number_of_digits: "Rakam Sayısı"
+    short_name: "Anahtar Kelime"
+    url: "URL"
+
+  actions:
+    show: "Görüntüle"
+    edit: "Düzenle"
+    save: "Kaydet"
+    destroy: "Sil"
+    confirm_to: "Emin misiniz?"
+    search: "Ara"
+
+  alerts:
+    require_login: "Lütfen giriş yapınız."
+
+  errors:
+    sorry: "Üzgünüz, bir sorunla karşılaşıldı (500)"
+    notified_dealing: "Sorunu kayıt altına aldık, en kısa sürede çözeceğiz."
+    authantication: "Denetim Hatası"
+    no_persmission: "Bu işlem için yetkiniz yok"
+    short_name_exists: "Anahtar kelime başka bir URL'e ait. Lütfen yeni bir anahtar kelime ile deneyiniz."
+    full_number_of_digits: "Bu rakam sayısı için yeni URL girişi kapatılmıştır. Lütfen rakam sayısını değiştirerek deneyiniz."
+    save_error: "Hata: "
+    no_sn_url_found: "SN URL bulunamadı."
+
+  login:
+    email: "email"
+    password: "Şifre"
+    remember_me: "Beni Hatırla"
+    forgot_password: "Şifremi Unuttum"
+    sign_in: "Giriş Yap"
+    sign_up: "Kayıt Ol"
+    sign_out: "Çıkış Yap"
+    log_in: "Giriş Yap"
+    log_out: "Çıkış Yap"
+    edit_profile: "Profilim"
+    my_ads: "İlanlarım"
+
+  ad_categories:
+    house: "Ev"
+    car: "Araba"
+
+  ad_types:
+    for_rent: "Kiralık"
+    for_sale: "Satılık"
+
+  build_conditions:
+    brand_new: "Sıfır"
+    second_hand: "İkinci El"
+    under_construction: "Yapım Aşamasında"
+
+  heating_types:
+    solar_power: "Güneş Enerjisi"
+    radiator: "Kat Kaloriferi"
+    air_conditioning: "Klima"
+    gas_boiler: "Kombi"
+    central: "Merkezi"
+    stove: "Soba"
+    geothermal_heating: "Jeotermal Isıtma"
+    n_a: "Yok"
+    unspecified: "Belirtilmemiş"
+
+  housing_types:
+    garden_dublex: "Bahçe Dubleksi"
+    garden_floor: "Bahçe Katı"
+    roof_dublex: "Çatı Dubleksi"
+    apartment: "Apartman"
+    dublex: "Dubleks"
+    family_house: "İkiz Ev"
+    house: "Müstakil Ev"
+    triplex: "Tripleks"
+    fourlex: "Fourleks"
+
+  status_of_uses:
+    empty: "Boş"
+    tennant_live_in: "Kiracı oturuyor"
+    owner_lives_in: "Ev sahibi oturuyor"
+    unspecified: "Belirtilmemiş"
+
+  fuel_types:
+    natural_gas: "Doğalgaz"
+    coal_wood: "Kömür-Odun"
+    heating: "Akaryakıt"
+    electric: "Elektrik"
+
+  currencies:
+    tl: "TRY"
+    dolar: "USD"
+    euro: "EUR"
+
+  navigation:
+    language: "Dil"
+    search: "İlan ara"
+    new_ad: "İlan ver"
+
+  languages:
+    english: "İngilizce"
+    turkish: "Türkçe"
+
+  footer:
+    about_us: "Hakkımızda"
+    terms_of_use: "Kullanım Koşulları"
+    contact_us: "Bize Ulaşın"

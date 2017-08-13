@@ -1,0 +1,8 @@
+<h2 class="page_name">
+  <%= (t "notification.notifications")%>
+  <span>
+    
+  </span>
+</h2>
+<%= paginated_collection_content(@notifications, @table_id, [(t "notification.attributes.id"), (t "notification.attributes.notification_type"), (t "notification.attributes.notifier"), (t "notification.attributes.full_name"), (t "notification.attributes.mail"), (t "notification.attributes.phone_number"), (t "notification.attributes.subject"), (t "notification.attributes.content"), (t "notification.attributes.day"), (t "notification.attributes.hour"), (t "notification.attributes.notification_status"), (t "actions")]) %>
+<%= paginate_footer(@notifications) %>

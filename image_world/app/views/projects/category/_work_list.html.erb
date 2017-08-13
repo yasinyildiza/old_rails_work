@@ -1,0 +1,10 @@
+<% works.each do |work| %>
+	<div class="image_world container category project work">
+		<% if work.images.count > 0 %>
+			<%= link_to image_tag(work.images.last.image_file_url(:thumb).to_s, size: "55x55"), work_path(work), :class => "image_world category project work_image" %>
+		<% else %>
+			<%= link_to image_tag("/uploads/image/no_image.png", size: "55x55"), work_path(work), :class => "image_world category project work_image" %>
+		<% end %>
+		<%= link_to work.name, work_path(work), :class => "image_world category project work_name" %>
+	</div>
+<% end %>

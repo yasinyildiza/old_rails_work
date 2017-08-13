@@ -1,0 +1,31 @@
+<% if @user.errors.any? %>
+  <div class="alert-message error">
+    <p>
+      <strong>
+          <%= t "errors.save_error", :count => @user.errors.count, :save_obj => (t "user") %>
+      </strong>
+      <br />
+      <% @user.errors.full_messages.each do |msg| %>
+          <strong>- <%= msg %></strong><br/>
+      <% end %>
+    </p>
+  </div>
+<% end %>
+
+<%= simple_form_for @user do |f| %>
+  <div class="inner_wrap">
+    <div class="form field_list">
+		<% if params[:action].to_s != 'edit' and params[:action].to_s != 'update'  %>
+		  <div class='field'>
+		    <%= f.input :email, :label=> (t "list_attributes.email"), :label_html => {:class => "form_label"} %>
+		  </div>
+		  <%= render :partial => 'users/password_form' , :locals => {:f => f}%>
+		  <div class='sub_form' id='subform'>
+		  </div>
+		<% end %>
+		<div class="submit">
+	      <%= f.button :submit, I18n.t("actions.save"), :id => "fs" %>
+	    </div>
+	</div>
+  </div>
+<% end %>

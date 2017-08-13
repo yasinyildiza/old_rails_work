@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @project.name %>
+</p>
+
+<p>
+  <b>Code:</b>
+  <%= @project.code %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @project.description %>
+</p>
+
+<br/>
+<p><b>Model Classes</b> | <%= link_to "New", new_model_class_path(:project_id => @project.id) %></p>
+<% if @project.model_classes.count > 0 %> 
+  <% @project.model_classes.each do |model_class| %>
+	  <p><%= link_to model_class.name, model_class %> | <%= link_to 'Edit', edit_model_class_path(model_class, :project_id => @project.id) %> | <%= link_to 'Destroy', model_class, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  <% end %>
+<% else %>
+	<p>None</p>
+<% end %>
+
+<br/>
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>

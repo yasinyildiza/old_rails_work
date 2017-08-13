@@ -1,0 +1,25 @@
+<% if flash[:error] %>
+  <div class="alert-message error">
+    <p>
+      <strong>
+        <%= (t "errors.save_error") %> <%= flash[:error] %>
+      </strong>
+    </p>
+  </div>
+<% end %>
+
+<h2 class="page_name"><%= (t "search_sn_url")%></h2>
+
+<%= form_tag(sn_url_go_path) do %>
+	<div class="inner_wrap">
+	<div class="form field_list">
+		  <div class='field'>
+		  	<%= label_tag :q, (t "list_attributes.sn_code"), :class =>  "form_label" %>
+		    <%= text_field_tag :q %>
+		  </div>
+		  <div class="submit">
+	      <%= submit_tag I18n.t("actions.search"), :id => "fs" %>
+	    </div>
+	  </div>
+	</div>
+<% end %>

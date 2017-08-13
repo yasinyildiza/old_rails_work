@@ -1,0 +1,33 @@
+<h1>Listing Method Members</h1>
+
+<table>
+  <tr>
+    <th>Model Class</th>
+    <th>Name</th>
+    <th>Method type</th>
+    <th>Override</th>
+    <th>Description</th>
+    <th>Warning</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @method_members.each do |method_member| %>
+  <tr>
+    <td><%= method_member.model_class.name %></td>
+    <td><%= method_member.name %></td>
+    <td><%= method_member.method_type.name %></td>
+    <td><%= method_member.override %></td>
+    <td><%= method_member.description %></td>
+    <td><%= method_member.warning %></td>
+    <td><%= link_to 'Show', method_member %></td>
+    <td><%= link_to 'Edit', edit_method_member_path(method_member) %></td>
+    <td><%= link_to 'Destroy', method_member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Method member', new_method_member_path %>

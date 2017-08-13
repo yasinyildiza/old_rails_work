@@ -1,0 +1,24 @@
+<%= content_for :path do %>
+  <%= render :partial => "path", :locals => {:work => @work} %>
+<% end %>
+
+<%= content_for :general_actions do %>
+  <% if @work.category.id != 1 %>
+    <%= link_to (t "actions.edit"), edit_work_path(@work), :class => "image_world general_action link two" %>
+    <%= link_to (t "actions.destroy"), work_path(@work), confirm: (t "actions.confirm"), method: :delete, :class => "image_world general_action link odd two" %>
+  <% else %>
+    <%= link_to (t "actions.edit"), edit_work_path(@work), :class => "image_world general_action link one" %>
+  <% end %>
+<% end %>
+
+<%= content_for :page_title do %>
+  <%= render :partial => "page_title", :locals => {:work => @work} %>
+<% end %>
+
+<div class="image_world container category projects" scrolling="auto">
+  <%= render :partial => "images", :locals => {:work => @work} %>
+</div>
+
+<div class="image_world container category new_work">
+  <%= render :partial => "new_image", :locals => {:work => @work} %>
+</div>

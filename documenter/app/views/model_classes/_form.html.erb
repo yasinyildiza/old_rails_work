@@ -1,0 +1,61 @@
+<%= simple_form_for(@model_class) do |f| %>
+  <% if @model_class.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@model_class.errors.count, "error") %> prohibited this model_class from being saved:</h2>
+
+      <ul>
+      <% @model_class.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if @project %>
+    <div class="field">
+      <%= f.label :project %>
+      <%= f.hidden_field :project_id, :value => @project.id %>
+      <%= link_to @project.name, @project %>
+    </div>
+  <% else %>
+    <div class="field">
+      <%= f.label :project %><br />
+      <%= f.input :project_id, label: false, :collection => Project.all.collect{|x| [x.name, x.id]}, :as => :select %>
+    </div>
+  <% end %>
+  <% if @model_class_collection.count > 0 %>
+    <div class="field">
+      <%= f.label "Parent Class" %><br />
+      <%= f.input :parent_model_class_id, label: false, :collection => @model_class_collection.collect{|x| [x.name, x.id]}, :as => :select %>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :class_type %><br />
+    <%= f.input :class_type_id, label: false, :collection => ClassType.all.collect{|x| [x.name, x.id]}, :as => :select %>
+  </div>
+  <div class="field">
+    <%= f.label :abstract %><br />
+    <%= f.input :abstract %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :warning %><br />
+    <%= f.text_field :warning %>
+  </div>
+  <% if ModelClass.all.count > 0 %>
+    <div class="field">
+      <%= f.label "Owner Classes" %><br />
+      <%= f.association :owner_classes, label: false, :collection => ModelClass.all.collect{|x| [x.name, x.id]}, :as => :check_boxes, :multiple => :true %>
+    </div>
+  <% end %>
+  <div class="actions">
+    <%= f.submit :value => "Save" %>
+  </div>
+<% end %>

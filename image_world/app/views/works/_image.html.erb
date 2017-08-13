@@ -1,0 +1,22 @@
+<tr>
+    <td><%= image.id %></td>
+    <td><%= link_to image_tag(image.image_file_url(:thumb).to_s, size: "55x55"), image_path(image) %></td>
+    <td>
+        <% if image.work.project %>
+          <%= link_to image.work.project.name, project_path(image.work.project) %>
+        <% else %>
+          <%= (t "other") %>
+        <% end %>
+    </td>
+    <td><%= link_to image.work.category.name, category_path(image.work.category) %></td>
+    <td><%= link_to image.work.name, work_path(image.work) %></td>
+    <td><%= link_to image.version, image_path(image) %></td>
+    <td><%= image.note %></td>
+    <td><%= image.created_at %></td>
+    <td><%= image.updated_at %></td>
+    <td>
+        <%= link_to (t "actions.show"), image_path(image) %>
+         | 
+        <%= link_to (t "actions.edit"), edit_image_path(image) %>
+    </td>
+</tr>

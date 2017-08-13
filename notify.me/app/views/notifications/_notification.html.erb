@@ -1,0 +1,18 @@
+<tr>
+    <td><%= notification.id %></td>
+    <td><%= notification.notification_type.name %></td>
+    <td><%= notification.user.full_name %></td>
+    <td><%= notification.first_name %> <%= notification.last_name %></td>
+    <td><%= notification.mail %></td>
+    <td><%= notification.phone_number %></td>
+    <td><%= notification.subject %></td>
+    <td><%= notification.content %></td>
+    <td><%= notification.actual_day %></td>
+    <td><%= notification.actual_hour %></td>
+    <td><%= notification.notification_status.name %></td>
+    <td class="act">
+        <%= link_to t('notification.actions.show'), notification_path(notification) %>
+        <%= link_to t('notification.actions.edit'), edit_notification_path(notification) %>
+        <%= link_to t('notification.actions.cancel'), notification_path(notification), method: :delete, data: { confirm: t('notification.actions.confirm') } %>
+    </td>
+</tr>

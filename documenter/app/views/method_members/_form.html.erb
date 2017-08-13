@@ -1,0 +1,50 @@
+<%= simple_form_for(@method_member) do |f| %>
+  <% if @method_member.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@method_member.errors.count, "error") %> prohibited this method_member from being saved:</h2>
+
+      <ul>
+      <% @method_member.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if @model_class %>
+    <div class="field">
+      <%= f.label :model_class %>
+      <%= f.hidden_field :model_class_id, :value => @model_class.id %>
+      <%= link_to @model_class.project.name, @model_class.project %> | <%= link_to @model_class.name, @model_class %>
+    </div>
+  <% else %>
+    <p><%= link_to @method_member.model_class.project.name, @method_member.model_class.project %> | <%= link_to @method_member.model_class.name, @method_member.model_class %></p>
+    <div class="field">
+      <%= f.label :model_class %><br />
+      <%= f.input :model_class_id, label: false, :collection => ModelClass.all.collect{|x| [x.name, x.id]}, :as => :select %>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :method_type %><br />
+    <%= f.input :method_type_id, label: false, :collection => MethodType.all.collect{|x| [x.name, x.id]}, :as => :select %>
+  </div>
+  <div class="field">
+    <%= f.label :override %><br />
+    <%= f.input :override %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :warning %><br />
+    <%= f.text_field :warning %>
+  </div>
+  <div class="actions">
+    <%= f.submit :value => "Save" %>
+  </div>
+<% end %>

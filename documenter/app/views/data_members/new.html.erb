@@ -1,0 +1,9 @@
+<h1>New Data Member</h1>
+
+<%= render 'form' %>
+
+<% if @model_class %>
+  <%= link_to 'Back', @model_class %>
+<% else %>
+  <%= link_to 'Back', data_members_path %>
+<% end %>

@@ -1,0 +1,48 @@
+<div class="sidebox">
+    <div class="frm">
+      <h3><%= (t "search")%></h3>
+      <%= simple_form_for :q, :url => house_search_path, :html => {:id => :q_search, :class => :filter_form, :method => :get} do |f| %>
+        <div class="field">
+            <%= f.label :house_category_id_cont, (t "filters.house_category_id_cont"), :required => false %>
+            <%= f.text_field :house_category_name_cont %>
+        </div>
+        <div class="field">
+          <%= f.label :trainer_first_name_cont, (t "filters.trainer_first_name_cont"), :required => false %>
+          <%= f.text_field :classroom_trainer_first_name_cont %>
+        </div>
+        <div class="field">
+          <%= f.label :trainer_last_name_cont, (t "filters.trainer_last_name_cont"), :required => false %>
+          <%= f.text_field :classroom_trainer_last_name_cont %>
+        </div>
+        <div class="field">
+            <%= f.label :parent_first_name_cont, (t "filters.parent_first_name_cont"), :required => false %>
+            <%= f.text_field :parents_first_name_cont %>
+        </div>
+        <div class="field">
+            <%= f.label :parent_last_name_cont, (t "filters.parent_last_name_cont"), :required => false %>
+            <%= f.text_field :parents_last_name_cont %>
+        </div>
+        <div class="field">
+          <%= f.label :school_name_cont, (t "filters.school_name_cont"), :required => false %>
+          <%= f.text_field :classroom_school_name_cont %>
+        </div>
+        <div class="field">
+          <%= f.label :town_name_cont, (t "filters.town_name_cont"), :required => false %>
+          <%= f.text_field :classroom_school_town_name_cont %>
+        </div>
+        <div class="field">
+          <%= f.label :city_name_cont, (t "filters.city_name_cont"), :required => false %>
+          <%= f.text_field :classroom_school_town_city_name_cont %>
+        </div>
+        <div class="field">
+            <%= f.label :address_cont, (t "filters.address_cont"), :required => false %>
+            <%= f.text_field :location_address_cont %>
+        </div>
+        <div class="field">
+          <%= f.label :house_citizenship_id_cont, (t "filters.house_citizenship_id_cont"), :required => false %>
+          <%= f.text_field :citizenship_id_eq %>
+        </div>
+        <%= f.submit :class=> "search", :value=>(t "actions.search") %>
+      <% end %>
+    </div>
+</div>

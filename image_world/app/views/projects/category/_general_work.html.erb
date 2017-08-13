@@ -1,0 +1,26 @@
+<div class="image_world container category project">
+	<div class="image_world text category project name">
+		<%= link_to project.general_work.category.name, category_path(project.general_work.category) %>
+	</div>
+	<div class="image_world container category project works" scrolling="auto">
+		<% if project.general_work.images.count > 0 %>
+			<% project.general_work.images.reverse.each do |image| %>
+				<div class="image_world container category project work">
+					<%= link_to image_tag(image.image_file_url(:thumb).to_s, size: "55x55"), image_path(image), :class => "image_world category project work_image" %>
+					<%= link_to image.version, image_path(image), :class => "image_world category project work_name" %>
+				</div>
+			<% end %>
+		<% else %>
+			<div class="image_world container category project work">
+				<%= link_to image_tag("/uploads/image/no_image.png", size: "55x55"), work_path(project.general_work), :class => "image_world category project work_image" %>
+				<%= link_to project.general_work.name, work_path(project.general_work), :class => "image_world category project work_name" %>
+			</div>
+		<% end %>
+		<div class="image_world container category project work">
+			<%= link_to image_tag("/uploads/image/add_image.png", size: "55x55"), work_path(project.general_work), :class => "image_world category project work_image" %>
+			<%= link_to (t "add_new"), work_path(project.general_work), :class => "image_world category project work_name" %>
+		</div>
+	</div>
+</div>
+
+		

@@ -1,0 +1,36 @@
+<%= simple_nested_form_for @notification do |f| %>
+
+  <%= f.association :notification_type, :label=> (t "notification.attributes.notification_type"), :label_html => {:class => "form_label"}, :collection => NotificationType.all.collect{|x| [x.name, x.id]} %>
+
+  <div class='field'>
+  	<%= f.input :first_name, :label=>(t "notification.attributes.first_name"), :label_html => {:class => "form_label"}, :input_html => { :value => 'A' } %>
+  </div>
+  <div class='field'>
+    <%= f.input :last_name, :label=>(t "notification.attributes.last_name"), :label_html => {:class => "form_label"}, :input_html => { :value => 'B' } %>
+  </div>
+  <div class='field'>
+    <%= f.input :mail, :label=>(t "notification.attributes.mail"), :label_html => {:class => "form_label"}, :input_html => { :value => 'ab@gmail.com' } %>
+  </div>
+  <div class='field'>
+    <%= f.input :phone_number, :label=>(t "notification.attributes.phone_number"), :label_html => {:class => "form_label"}, :input_html => { :value => '1234567' } %>
+  </div>
+
+  <div class='field'>
+    <%= f.input :subject, :label=>(t "notification.attributes.subject"), :label_html => {:class => "form_label"}, :input_html => { :value => 's' } %>
+  </div>
+  <div class='field'>
+    <%= f.input :content, :label=>(t "notification.attributes.content"), :label_html => {:class => "form_label"}, :input_html => { :value => 'c' } %>
+  </div>
+
+  <div class="field">
+    <%= f.input :day, :label=>(t "notification.attributes.day"), :label_html => {:class => "form_label"}, as: :date_picker %>
+  </div>
+  <div class='field'>
+    <%= f.input :hour, as: :time, :minute_step => 1, :label=>(t "notification.attributes.hour"), :label_html => {:class => "form_label"} %>
+  </div>
+
+  <div class="submit">
+    <%= f.button :submit, :id=>"fs", :value=>(t "notification.notify") %>
+  </div>
+
+<% end %>

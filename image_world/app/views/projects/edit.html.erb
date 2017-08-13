@@ -1,0 +1,26 @@
+<%= content_for :path do %>
+  <div class="image_world path element link first">
+    <%= (t "model.project.singular")%>
+  </div>
+  <div class="image_world path element text seperator"> > </div>
+  <div class="image_world path element link second">
+    <%= link_to @project.name, project_path(@project) %>
+  </div>
+<% end %>
+
+<%= content_for :general_actions do %>
+  <%= link_to (t "actions.show"), project_path(@project), :class => "image_world general_action link two" %>
+  <%= link_to (t "actions.destroy"), project_path(@project), confirm: (t "actions.confirm"), method: :delete, :class => "image_world general_action link odd two" %>
+<% end %>
+
+<%= content_for :page_title do %>
+  <div class="image_world text item_name">
+    <%= @project.name %>
+  </div>
+  <div class="image_world text item_seperator"> | </div>
+  <div class="image_world text item_description">
+    <%= @project.description %>
+  </div>
+<% end %>
+
+<%= render "form" %>

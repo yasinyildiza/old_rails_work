@@ -1,0 +1,4 @@
+<div class="image_world container category project works" scrolling="auto">
+	<%= render :partial => "projects/category/work_list", :locals => {:project => project, :category_id => category_id, :works => works} %>
+	<%= render :partial => "projects/category/new_work", :locals => {:project => project, :category_id => category_id, :works => works} %>
+</div>

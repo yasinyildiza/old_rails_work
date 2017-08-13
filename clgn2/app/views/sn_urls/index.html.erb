@@ -1,0 +1,4 @@
+<h2 class="page_name"><%= (t "show_sn_urls")%></h2>
+	
+  <%= paginated_collection_content(@sn_urls, @table_id, [(t "list_attributes.id"), (t "list_attributes.sn_code"), (t "list_attributes.url"), (t "list_attributes.number_of_digits"), (t "list_attributes.short_name")]) %>
+  <%= paginate_footer(@sn_urls) %>

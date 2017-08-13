@@ -1,0 +1,6 @@
+:address: "smtp.gmail.com"
+:port: 465
+:user_name: "clgn@gmail.com"
+:password: "ikitanebir"
+:authentication: "plain"
+:openssl_verify_mode: "none"

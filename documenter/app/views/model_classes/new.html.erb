@@ -1,0 +1,9 @@
+<h1>New Model Class</h1>
+
+<%= render 'form' %>
+
+<% if @project %>
+  <%= link_to 'Back', @project %>
+<% else %>
+  <%= link_to 'Back', model_classes_path %>
+<% end %>

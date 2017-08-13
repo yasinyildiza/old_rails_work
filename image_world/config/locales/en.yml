@@ -1,0 +1,75 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  date:
+    formats:
+      default: "%Y/%m/%d"
+  general_design: "General Design"
+  other: "Other"
+  home: "Home"
+  add_new: "+ New"
+  attributes:
+    id: "Id"
+    general_actions: "General Actions"
+    name: "Name"
+    image_file: "Image File"
+    version: "Version"
+    created_at: "Creation Date"
+    updated_at: "Update Date"
+    email: "e-mail"
+    password: "Password"
+    password_confirmation: "Password Confirmation"
+    description: "Description"
+    note: "Note"
+    image: "Image"
+  actions:
+    show: "Show"
+    edit: "Edit"
+    destroy: "Destroy"
+    confirm: "Are you sure?"
+    cancel: "Cancel"
+    save: "Save"
+    new: "+ New"
+    new_category: "+ New Category"
+    new_project: "+ New Project"
+    new_work: "+ New Work"
+  login:
+    email: "e-mail"
+    password: "Password"
+    sign_in: "Sign In"
+    sign_up: "Sign Up"
+    remember_me: "Remember me"
+  model:
+    category:
+      singular: "Category"
+      plural: "Categories"
+      show: "Show Category"
+      new: "New Category"
+      edit: "Edit Category"
+      delete: "Delete Category"
+      not_exist: "No Category to show"
+    work:
+      singular: "Work"
+      plural: "Works"
+      show: "Show Work"
+      new: "New Work"
+      edit: "Edit Work"
+      delete: "Delete Work"
+      not_exist: "No Work to show"
+    project:
+      singular: "Project"
+      plural: "Projects"
+      show: "Show Project"
+      new: "New Project"
+      edit: "Edit Project"
+      delete: "Delete Project"
+      not_exist: "No Project to show"
+    image:
+      singular: "Image"
+      plural: "Images"
+      show: "Show Image"
+      new: "New Image"
+      edit: "Edit Image"
+      delete: "Delete Image"
+      not_exist: "No Image to show"

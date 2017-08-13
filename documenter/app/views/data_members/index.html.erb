@@ -1,0 +1,35 @@
+<h1>Listing Data Members</h1>
+
+<table>
+  <tr>
+    <th>Model Class</th>
+    <th>Name</th>
+    <th>Data type</th>
+    <th>Calculation</th>
+    <th>Default Value</th>
+    <th>Description</th>
+    <th>Warning</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @data_members.each do |data_member| %>
+  <tr>
+    <td><%= data_member.model_class.name %></td>
+    <td><%= data_member.name %></td>
+    <td><%= data_member.data_type.name %></td>
+    <td><%= data_member.calculation %></td>
+    <td><%= data_member.default_value %></td>
+    <td><%= data_member.description %></td>
+    <td><%= data_member.warning %></td>
+    <td><%= link_to 'Show', data_member %></td>
+    <td><%= link_to 'Edit', edit_data_member_path(data_member) %></td>
+    <td><%= link_to 'Destroy', data_member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Data member', new_data_member_path %>

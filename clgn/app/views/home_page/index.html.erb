@@ -1,0 +1,26 @@
+<div class="container" id="home_page_links">
+	<div class="container message" id="home_message"><%= (t "home_page.welcome") %></div>
+	<a class="home_page_link" id="search_ad" href="#" onclick="displaySearch()"><%= (t "home_page.search_ad") %></a>
+	<a class="home_page_link" id="new_ad" href="#" onclick="displayNew()"><%= (t "home_page.new_ad") %></a>
+</div>
+
+<%= render :partial => "search_home" %>
+<%= render :partial => "new_home" %>
+
+<script>
+	function displaySearch()
+	{
+		$("#home_page_links").hide();
+		$("#search_links").show();
+	}
+
+	function displayNew()
+	{
+		$("#home_page_links").hide()
+		$("#new_links").show();
+	}
+</script>
+
+<!--<a href="#"><img class="home_img_search" src="/images/find_house.jpg" /></a>
+<a href="<%= houses_path %>"><img class="home_img_link home_img_link_for_sale" src="/images/for_sale.png" /></a>
+<a href="<%= houses_path %>"><img class="home_img_link home_img_link_for_rent" src="/images/for_rent.jpeg" /></a>-->

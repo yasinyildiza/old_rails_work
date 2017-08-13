@@ -1,0 +1,13 @@
+<%= content_for :path do %>
+  <%= render :partial => "path", :locals => {:image => @image} %>
+<% end %>
+
+<%= content_for :general_actions do %>
+  <%= link_to (t "actions.show"), image_path(@image), :class => "image_world general_action link one" %>
+<% end %>
+
+<%= content_for :page_title do %>
+  <%= render :partial => "page_title", :locals => {:image => @image} %>
+<% end %>
+
+<%= render "form" %>

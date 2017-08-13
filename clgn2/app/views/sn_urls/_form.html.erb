@@ -1,0 +1,40 @@
+<% if @sn_url.errors.any? or flash[:error] %>
+  <div class="alert-message error">
+    <p>
+      <strong>
+          <% if @sn_url.errors.any? %>
+            <%= t "errors.save_error", :count => @sn_url.errors.count, :save_obj => (t "sn_url") %>
+            <br />
+            <% @sn_url.errors.full_messages.each do |msg| %>
+                <strong>- <%= msg %></strong><br/>
+            <% end %>
+          <% elsif flash[:error] %>
+            <%= (t "errors.save_error") %> <%= flash[:error] %>
+          <% end %>
+      </strong>
+    </p>
+  </div>
+<% end %>
+
+<%= simple_form_for @sn_url do |f| %>
+  <div class="inner_wrap">
+    <div class="form field_list">
+      <div class='field odd'>
+        <%= label_tag :number_of_digits_label, (t "list_attributes.number_of_digits"), :class =>  "form_label" %>
+        <%= select_tag :number_of_digits, "<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>".html_safe, { :class => "form_input"} %>
+      </div>
+		  <div class='field'>
+		    <%= f.input :value, :label=> (t "list_attributes.url"), :label_html => {:class => "form_label"} %>
+		  </div>
+      <% if current_user %>
+        <div class='field odd'>
+          <%= label_tag :short_name_label, (t "list_attributes.short_name"), :class =>  "form_label" %>
+          <%= text_field_tag :short_name %>
+        </div>
+      <% end %>
+		  <div class="submit">
+	      <%= f.button :submit, I18n.t("actions.save"), :id => "fs" %>
+	    </div>
+	  </div>
+  </div>
+<% end %>

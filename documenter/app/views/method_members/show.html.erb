@@ -1,0 +1,98 @@
+<p id="notice"><%= notice %></p>
+
+<p><%= link_to @method_member.model_class.project.name, @method_member.model_class.project %> | <%= link_to @method_member.model_class.name, @method_member.model_class %> | <%= link_to @method_member.name, @method_member %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @method_member.name %>
+</p>
+
+<p>
+  <b>Model Class:</b>
+  <%= link_to @method_member.model_class.name, @method_member.model_class %>
+</p>
+
+<p>
+  <b>Method type:</b>
+  <%= link_to @method_member.method_type.name, @method_member.method_type %>
+</p>
+
+<p>
+  <b>Override:</b>
+  <%= @method_member.override %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @method_member.description %>
+</p>
+
+<p>
+  <b>Warning:</b>
+  <%= @method_member.warning %>
+</p>
+
+<br/>
+<p><b>Method Parameters</b></p>
+<% if @method_member.method_parameters.count > 0 %> 
+  <% @method_member.method_parameters.each do |method_parameter| %>
+  <p><%= link_to method_parameter.data_type.name, method_parameter.data_type %> <%= link_to method_parameter.name, method_parameter %> | <%= link_to 'Edit', edit_method_parameter_path(method_parameter, :method_member_id => @method_member.id) %> | <%= link_to 'Destroy', method_parameter, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  <% end %>
+<% else %>
+  <p>None</p>
+<% end %>
+
+<p><b>New Parameter</b></p>
+<%= simple_form_for @method_member do |f| %>
+  <%= f.simple_fields_for :method_parameters, @method_member.method_parameters.build do |method_parameter| %>
+    <div class="field">
+      <%= method_parameter.label :name %><br />
+      <%= method_parameter.text_field :name %>
+    </div>
+    <div class="field">
+      <%= method_parameter.label :data_type %><br />
+      <%= method_parameter.input :data_type_id, label: false, :collection => DataType.all.collect{|x| [x.name, x.id]}, :as => :select %>
+    </div>
+    <div class="field">
+      <%= method_parameter.label :description %><br />
+      <%= method_parameter.text_field :description %>
+    </div>
+    <div class="field">
+      <%= method_parameter.label :warning %><br />
+      <%= method_parameter.text_field :warning %>
+    </div>
+  <% end %>
+  <div class="actions">
+    <%= f.submit :value => "Add Parameter" %>
+  </div>
+<% end %>
+
+<br/>
+<p><b>Return Value</b></p>
+<% if @method_member.return_value %>
+  <p><%= link_to @method_member.return_value.data_type.name, @method_member.return_value %> | <%= link_to 'Edit', edit_return_value_path(@method_member.return_value, :method_member_id => @method_member.id) %></p>
+<% else %>
+  <%= simple_form_for @method_member do |f| %>
+    <%= f.simple_fields_for :return_value, @method_member.build_return_value do |return_value| %>
+      <div class="field">
+        <%= return_value.label :data_type %><br />
+        <%= return_value.input :data_type_id, label: false, :collection => DataType.all.collect{|x| [x.name, x.id]}, :as => :select %>
+      </div>
+      <div class="field">
+        <%= return_value.label :description %><br />
+        <%= return_value.text_field :description %>
+      </div>
+      <div class="field">
+        <%= return_value.label :warning %><br />
+        <%= return_value.text_field :warning %>
+      </div>
+    <% end %>
+    <div class="actions">
+      <%= f.submit :value => "Add Return Value" %>
+    </div>
+  <% end %>
+<% end %>
+
+<br/>
+<%= link_to 'Edit', edit_method_member_path(@method_member) %> | 
+<%= link_to 'Back', @method_member.model_class %>

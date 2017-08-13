@@ -1,0 +1,9 @@
+<h1>New Method Member</h1>
+
+<%= render 'form' %>
+
+<% if @model_class %>
+  <%= link_to 'Back', @model_class %>
+<% else %>
+  <%= link_to 'Back', method_members_path %>
+<% end %>

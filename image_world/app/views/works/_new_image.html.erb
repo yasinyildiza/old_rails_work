@@ -1,0 +1,19 @@
+<div class="image_world container project category new_work"><%= (t "model.image.new") %></div>
+<%= simple_form_for work do |f| %>
+  <div class="image_world inner_wrap">
+    <div class="image_world form fields without_margin">
+      <%= f.simple_fields_for :images, work.images.build do |image| %>
+      	<div class="image_world form field">
+  	      <%= image.hidden_field :version, :value => work.next_image_version %>
+  	    </div>
+  	    <div class="image_world form field odd">
+          <%= image.input :image_file, :label=> (t "attributes.image_file"), :label_html => {:class => "image_world form field label"}, :as => :file %>
+        </div>
+        <div class="image_world form field">
+          <%= image.input :note, :label=> (t "attributes.note"), :label_html => {:class => "image_world form field label"} %>
+        </div>
+      <% end %>
+      <div class="image_world container form submit"><%= f.button :submit, :id=> "fs", :value=>(t "actions.save") %></div>
+	</div>
+  </div>
+<% end %>

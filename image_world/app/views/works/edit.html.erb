@@ -1,0 +1,18 @@
+<%= content_for :path do %>
+  <%= render :partial => "path", :locals => {:work => @work} %>
+<% end %>
+
+<%= content_for :general_actions do %>
+  <% if @work.category.id != 1 %>
+    <%= link_to (t "actions.show"), work_path(@work), :class => "image_world general_action link two" %>
+    <%= link_to (t "actions.destroy"), work_path(@work), confirm: (t "actions.confirm"), method: :delete, :class => "image_world general_action link odd two" %>
+  <% else %>
+    <%= link_to (t "actions.show"), work_path(@work), :class => "image_world general_action link one" %>
+  <% end %>
+<% end %>
+
+<%= content_for :page_title do %>
+  <%= render :partial => "page_title", :locals => {:work => @work} %>
+<% end %>
+
+<%= render "form" %>
